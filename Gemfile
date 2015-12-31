@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -14,6 +15,7 @@ gem 'pg',             '0.17.1'
 gem 'rails_12factor', group: :production
 gem 'puma'
 gem 'devise', '3.4.1'
+gem 'devise-i18n'
 gem 'bootstrap-sass'
 
 group :development, :test do
