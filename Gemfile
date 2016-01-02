@@ -22,12 +22,25 @@ gem 'rails-i18n'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'better_errors'
+  #will need to install Qt on your machine https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'letter_opener'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'simple_bdd'
+  gem 'shoulda-matchers'
+
 end
 
 group :test do
