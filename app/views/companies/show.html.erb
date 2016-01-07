@@ -1,0 +1,29 @@
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @company.cnpj %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @company.phone %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @company.contact %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @company.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Back', companies_path, class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Deletar', @company, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Tem certeza?' } %>

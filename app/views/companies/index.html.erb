@@ -1,0 +1,30 @@
+
+<h1>Lista de Empresas</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cnpj</th>
+        <th>Fone</th>
+        <th>Contato</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td><%= link_to company.name , company%></td>
+          <td><%= company.cnpj %></td>
+          <td><%= company.phone %></td>
+          <td><%= company.contact %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to "Nova Empresa",  new_company_path, class: 'btn btn-default btn-sm' %>

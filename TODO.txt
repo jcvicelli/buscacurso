@@ -1,0 +1,15 @@
+
+rails g scaffold user name:string pass:string user_type:references
+
+
+
+rails g scaffold company cnpj name phone contact user:references
+
+
+
+CNPJ ou CPF (Busca já cadastrado)
+Nome Empresa/Pessoa
+Endereço (CEP automático)
+Telefone e e-mail
+Senha
+Nome de contato
