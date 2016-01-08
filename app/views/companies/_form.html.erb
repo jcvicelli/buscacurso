@@ -21,6 +21,7 @@
 
   <h3>Endereços: </h3><br>
   <%= f.fields_for :enderecos do |e| %>
+    <hr>
     <div class="form-group">
       <%= e.label :cep %><br>
       <%= e.text_field :cep, class: 'form-control' %>

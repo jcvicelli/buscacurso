@@ -8,7 +8,7 @@ rails g scaffold company cnpj name phone contact user:references
 rails generate model Endereco cep logradouro bairro numero cidade estado company:references
 
 rails generate model Cidade nome:index
-rails generate model Cidade nome:index
+rails generate migration add_user_to_enderecos user_id:user:references 
 
 CNPJ ou CPF (Busca já cadastrado)
 Nome Empresa/Pessoa

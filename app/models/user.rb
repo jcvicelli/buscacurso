@@ -12,5 +12,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :lockable
 
-  has_one :company
+  has_many :enderecos
+  accepts_nested_attributes_for :enderecos, :reject_if => :all_blank, :allow_destroy => true
 end
