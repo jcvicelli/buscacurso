@@ -16,11 +16,13 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
-    @company.enderecos.build
+    3.times { @company.enderecos.build }
   end
 
   # GET /companies/1/edit
   def edit
+    #@company = Company.find(params[:id])
+    @company.enderecos.build
   end
 
   # POST /companies
@@ -71,6 +73,8 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:cnpj, :name, :phone, :contact, enderecos_attributes: [:cep, :cidade])
+      params.require(:company).permit(:cnpj, :name, :phone, :contact,
+                              enderecos_attributes: [:id,:cep, :cidade, :estado,
+                                :bairro, :logradouro, :numero])
     end
 end

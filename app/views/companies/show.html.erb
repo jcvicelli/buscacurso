@@ -19,6 +19,27 @@
   <%= @company.contact %>
 </p>
 
+<p>
+  <h2>Endereços:</h2>
+</p>
+
+  <% @company.enderecos.each do |endereco| %>
+    <p>
+      <strong>Cep: </strong>
+      <%= endereco.cep %>
+    </p>
+    <p>
+      <strong>Cidade: </strong>
+      <%= endereco.cidade %>
+    </p>
+    <p>
+      <strong>Logradouro: </strong>
+      <%= endereco.logradouro %>
+    </p>
+
+  <% end %>
+
+
 <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-default btn-sm' %> |
 <%= link_to 'Back', companies_path, class: 'btn btn-default btn-sm' %> |
 <%= link_to 'Deletar', @company, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Tem certeza?' } %>

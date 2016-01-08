@@ -13,6 +13,15 @@ require 'simple_bdd'
 require 'factory_girl_rails'
 #FactoryGirl.find_definitions
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
+RSpec.configure do |config|
+  config.after :each do
+    Warden.test_reset!
+  end
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

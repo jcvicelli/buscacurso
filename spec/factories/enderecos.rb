@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :endereco do
-    cep "MyString"
-logradouro "MyString"
-bairro "MyString"
-numero "MyString"
-cidade "MyString"
-estado "MyString"
-company nil
+    cep "81110070"
+    logradouro "Rua"
+    bairro "Centro"
+    numero "8"
+    cidade "NYC"
+    estado "PR"
   end
 
 end
