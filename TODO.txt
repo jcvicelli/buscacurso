@@ -5,7 +5,10 @@ rails g scaffold user name:string pass:string user_type:references
 
 rails g scaffold company cnpj name phone contact user:references
 
+rails generate model Endereco cep logradouro bairro numero cidade estado company:references
 
+rails generate model Cidade nome:index
+rails generate model Cidade nome:index
 
 CNPJ ou CPF (Busca já cadastrado)
 Nome Empresa/Pessoa
@@ -13,3 +16,11 @@ Endereço (CEP automático)
 Telefone e e-mail
 Senha
 Nome de contato
+http://127.0.0.1:3000/users/confirmation?confirmation_token==3DP7yeYxZzq-YvZ44s-yFF
+<p><a href=3D"http://127.0.0.1:3000/users/confirmation?confirmation_token==3Dzz_n5SdFYSvzsTBW6zxr">Confirmar minha conta</a></p>
+
+
+<div class="form-group">
+  <%= f.label :user_id %><br>
+  <%= f.collection_select :user_id, User.order(:name),:id,:name, include_blank: true, class: 'input-sm' %>
+</div>

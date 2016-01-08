@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106214129) do
+ActiveRecord::Schema.define(version: 20160107230651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,12 @@ ActiveRecord::Schema.define(version: 20160106214129) do
     t.string   "name"
     t.string   "phone"
     t.string   "contact"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "companies", ["cnpj"], name: "index_companies_on_cnpj", unique: true, using: :btree
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
-  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -44,6 +43,20 @@ ActiveRecord::Schema.define(version: 20160106214129) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "enderecos", force: :cascade do |t|
+    t.string   "cep"
+    t.string   "logradouro"
+    t.string   "bairro"
+    t.string   "numero"
+    t.string   "cidade"
+    t.string   "estado"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "enderecos", ["company_id"], name: "index_enderecos_on_company_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -73,5 +86,5 @@ ActiveRecord::Schema.define(version: 20160106214129) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
-  add_foreign_key "companies", "users"
+  add_foreign_key "enderecos", "companies"
 end

@@ -3,11 +3,10 @@ require 'rails_helper'
 RSpec.describe "companies/edit", type: :view do
   before(:each) do
     @company = assign(:company, Company.create!(
-      :cnpj => "MyString",
+      :cnpj => "70.274.414/0001-94",
       :name => "MyString",
       :phone => "MyString",
-      :contact => "MyString",
-      :user => nil
+      :contact => "MyString"
     ))
   end
 
@@ -24,7 +23,6 @@ RSpec.describe "companies/edit", type: :view do
 
       assert_select "input#company_contact[name=?]", "company[contact]"
 
-      assert_select "input#company_user_id[name=?]", "company[user_id]"
     end
   end
 end

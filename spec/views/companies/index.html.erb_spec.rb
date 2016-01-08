@@ -4,18 +4,16 @@ RSpec.describe "companies/index", type: :view do
   before(:each) do
     assign(:companies, [
       Company.create!(
-        :cnpj => "Cnpj",
+        :cnpj => "70.274.414/0001-94",
         :name => "Name",
         :phone => "Phone",
-        :contact => "Contact",
-        :user => nil
+        :contact => "Contact"
       ),
       Company.create!(
-        :cnpj => "Cnpj",
+        :cnpj => "70.274.414/0001-94",
         :name => "Name",
         :phone => "Phone",
-        :contact => "Contact",
-        :user => nil
+        :contact => "Contact"
       )
     ])
   end
@@ -26,6 +24,5 @@ RSpec.describe "companies/index", type: :view do
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Phone".to_s, :count => 2
     assert_select "tr>td", :text => "Contact".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

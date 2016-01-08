@@ -18,7 +18,5 @@ feature "add_company" do
     fill_in_signin_fields
     expect(page).to have_content("Login efetuado com sucesso.")
 
-    click_link Minha Conta
-    fill_in ""
   end
 end

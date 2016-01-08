@@ -3,11 +3,10 @@ require 'rails_helper'
 RSpec.describe "companies/show", type: :view do
   before(:each) do
     @company = assign(:company, Company.create!(
-      :cnpj => "Cnpj",
+      :cnpj => "70.274.414/0001-94",
       :name => "Name",
       :phone => "Phone",
-      :contact => "Contact",
-      :user => nil
+      :contact => "Contact"
     ))
   end
 
@@ -17,6 +16,5 @@ RSpec.describe "companies/show", type: :view do
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Phone/)
     expect(rendered).to match(/Contact/)
-    expect(rendered).to match(//)
   end
 end

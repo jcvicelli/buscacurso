@@ -5,12 +5,12 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :name
       t.string :phone
       t.string :contact
-      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
 
     add_index :companies, :name, unique: true
+    add_index :companies, :cnpj, unique:true
 
   end
 end
