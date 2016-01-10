@@ -1,10 +1,9 @@
 FactoryGirl.define do
   factory :company do
-    cnpj "70.274.414/0001-94"
-    name "Grupo Tabajara"
-    phone "555-5555"
-    contact "fulano"
-
+    cnpj "27.138.265/0001-07"
+    name { FFaker::Company.name }
+    phone { FFaker::PhoneNumber.phone_number }
+    contact { FFaker::NameBR.name }
   end
 
 end

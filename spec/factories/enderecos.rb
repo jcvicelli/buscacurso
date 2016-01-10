@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :endereco do
     cep "81110070"
-    logradouro "Rua"
+    logradouro { FFaker::Address.street_name }
     bairro "Centro"
-    numero "8"
-    cidade "NYC"
+    numero { FFaker::Address.building_number }
+    cidade { FFaker::Address.city }
     estado "PR"
   end
 
