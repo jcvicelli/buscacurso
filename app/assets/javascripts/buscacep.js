@@ -1,7 +1,8 @@
 $(document).ready(function(){
     console.log("buscacep.js");
 
-      $(".btcep").click(  function(){
+      $( ".form-grou" ).on( "change", ".cep", function(){
+      //$(".btcep").click(  function(){
         console.log("buscacep.js init");
         var fields = $(this).next();
         var cep = $(this).siblings().eq(2).val();
