@@ -5,7 +5,8 @@ $(document).ready(function(){
       //$(".btcep").click(  function(){
         console.log("buscacep.js init");
         var fields = $(this).next();
-        var cep = $(this).siblings().eq(2).val();
+        //var cep = $(this).siblings().eq(2).val();
+        var cep = $(".cep").val();
         var url = 'http://cep.republicavirtual.com.br/web_cep.php?formato=json&cep=';
 
         $.ajax({url: url+cep, success: function(data){
