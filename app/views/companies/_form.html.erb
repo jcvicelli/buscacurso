@@ -20,38 +20,14 @@
   </div>
 
   <h3>Endereços: </h3><br>
-  <%= f.fields_for :enderecos do |e| %>
-    <hr>
-    <div class="form-group">
-      <%= e.label :cep %><br>
-      <%= e.text_field :cep, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= e.label :cidade %><br>
-      <%= e.text_field :cidade, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= e.label :estado %><br>
-      <%= e.text_field :estado, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= e.label :bairro %><br>
-      <%= e.text_field :bairro, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= e.label :logradouro %><br>
-      <%= e.text_field :logradouro, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= e.label :numero %><br>
-      <%= e.text_field :numero, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= e.check_box '_destroy' %>
-      <%= e.label :Remover? %>
-    </div>
-  <% end %>
+  <div class="enderecos">
+    <%= f.fields_for :enderecos do |e| %>
+      <%= render 'endereco_fields', f: e %>
+    <% end %>
+    <%= link_to_add_association "Adicionar Endereço", f, :enderecos, class: "btn btn-default" %>
+  </div>
 
+  <br>
   <%= f.submit "Salvar", class: 'btn btn-primary' %>
 
 <% end %>

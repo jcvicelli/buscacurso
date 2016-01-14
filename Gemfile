@@ -19,6 +19,7 @@ gem 'devise-i18n'
 gem 'bootstrap-sass'
 gem 'rails-i18n'
 gem 'brazilian-rails'
+gem 'cocoon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -16,13 +16,13 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
-    3.times { @company.enderecos.build }
+    # 3.times { @company.enderecos.build }
   end
 
   # GET /companies/1/edit
   def edit
     #@company = Company.find(params[:id])
-    @company.enderecos.build
+    #@company.enderecos.build
   end
 
   # POST /companies
@@ -63,6 +63,16 @@ class CompaniesController < ApplicationController
       format.html { redirect_to companies_url, notice: 'Empresa apagada com sucesso.' }
       format.json { head :no_content }
     end
+  end
+
+  def localizar_endereco
+    # Classe do brazilian-rails responsavél pela busca de endereco.
+    @endereco = BuscaEndereco.cep params[:cep]
+    endereco = @endereco.fetch(0)
+    numero = @endereco.fetch(1)
+    bairro = @endereco.fetch(2)
+    estado = @endereco.fetch(3)
+    cidade = @endereco.fetch(4)
   end
 
   private

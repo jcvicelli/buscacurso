@@ -1,0 +1,29 @@
+<ul class="nested-fields list-group">
+  <li class="field list-group-item">
+    <div class="form-group">
+      <%= f.label :cep %><br>
+      <%= f.text_field :cep, class: 'form-control cep' %>
+      <%= link_to "Buscar Endereço", "javascript:void(0);", class: "btn btn-default btcep"%>
+    <div class="form-group">
+      <%= f.label :cidade %><br>
+      <%= f.text_field :cidade, class: 'form-control cidade' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :estado %><br>
+      <%= f.text_field :estado, class: 'form-control estado' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :bairro %><br>
+      <%= f.text_field :bairro, class: 'form-control bairro' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :logradouro %><br>
+      <%= f.text_field :logradouro, class: 'form-control logradouro' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :numero %><br>
+      <%= f.text_field :numero, class: 'form-control' %>
+    </div>
+  </li>
+  <%= link_to_remove_association "Remover Endereço", f , class: "btn btn-default"%>
+</ul>
