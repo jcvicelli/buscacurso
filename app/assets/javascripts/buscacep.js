@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
     console.log("buscacep.js");
 
       $( ".form-group" ).on( "change", ".cep", function(){
@@ -26,6 +26,3 @@ $(document).ready(function(){
         }});
         return this;
       });
-
-
-});
