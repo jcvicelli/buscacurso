@@ -13,18 +13,20 @@
     <%= f.email_field :email, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-    <% if @validatable %>
-      <span class="help-block">Mínimo <%= @minimum_password_length %> caracteres.</span>
-    <% end %>
-  </div>
+  <% if f.object.password_required? %>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <% if @validatable %>
+        <span class="help-block">Mínimo <%= @minimum_password_length %> caracteres.</span>
+      <% end %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+  <% end %>
 
   <%= f.submit "Criar", class: 'btn btn-primary' %>
 <% end %>

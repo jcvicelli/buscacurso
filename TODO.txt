@@ -17,19 +17,10 @@ facilitador
 
 
 
-pizza grande universo
-calzone do chfe
-75.80
-
-
-
-
-
-
-
-
 rails g scaffold user name:string pass:string user_type:references
 rails g scaffold company cnpj name phone contact user:references
 rails generate model Endereco cep logradouro bairro numero cidade estado company:references
 rails generate model Cidade nome:index
 rails generate migration add_user_to_enderecos user_id:user:references
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
