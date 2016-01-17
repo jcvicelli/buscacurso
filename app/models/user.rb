@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
      user.provider = auth.provider
      user.uid = auth.uid
      user.email = auth.info.email
-     user.password = Devise.friendly_token[0,20]
+     #user.password = Devise.friendly_token[0,20]
      user.confirmed_at = Date.today
      user.name = auth.info.name   # assuming the user model has a name
    end
