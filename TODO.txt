@@ -1,8 +1,3 @@
-******login with google and facebook
-
-*empresa
--site
--email
 
 *curso
 Empresa
@@ -15,6 +10,7 @@ sobre o curso
 facilitador
 
 
+rails g scaffold Course title:index description:text about:text place company:references
 
 
 rails g scaffold user name:string pass:string user_type:references
@@ -22,5 +18,4 @@ rails g scaffold company cnpj name phone contact user:references
 rails generate model Endereco cep logradouro bairro numero cidade estado company:references
 rails generate model Cidade nome:index
 rails generate migration add_user_to_enderecos user_id:user:references
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+rails generate migration add_email_to_companies email site

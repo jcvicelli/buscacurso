@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todos os Cursos</h1>
+
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descrição</th>
+      <th>Sobre</th>
+      <th>Onde</th>
+      <th>Empresa</th>
+      <th>Avaliação</th>
+      <th>Início</th>
+      <th>Fim</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.title, course %></td>
+        <td><%= course.description %></td>
+        <td><%= course.about %></td>
+        <td><%= course.place %></td>
+        <td><%= course.company %></td>
+        <td><%= course.rating %></td>
+        <td><%= course.begins_at %></td>
+        <td><%= course.ends_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Novo Curso', new_course_path, class: 'btn btn-default btn-sm' %>

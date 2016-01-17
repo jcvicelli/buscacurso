@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115233051) do
+ActiveRecord::Schema.define(version: 20160117185811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,28 @@ ActiveRecord::Schema.define(version: 20160115233051) do
     t.string   "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "site"
   end
 
   add_index "companies", ["cnpj"], name: "index_companies_on_cnpj", unique: true, using: :btree
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "about"
+    t.string   "place"
+    t.integer  "company_id"
+    t.string   "rating"
+    t.datetime "begins_at"
+    t.datetime "ends_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "courses", ["company_id"], name: "index_courses_on_company_id", using: :btree
+  add_index "courses", ["title"], name: "index_courses_on_title", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -92,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160115233051) do
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "courses", "companies"
   add_foreign_key "enderecos", "companies"
   add_foreign_key "enderecos", "users"
 end

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @course.title %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @course.description %>
+</p>
+
+<p>
+  <strong>Sobre:</strong>
+  <%= @course.about %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @course.place %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @course.company %>
+</p>
+
+<p>
+  <strong>Avaliação:</strong>
+  <%= @course.rating %>
+</p>
+
+<p>
+  <strong>Inicio:</strong>
+  <%= @course.begins_at %>
+</p>
+
+<p>
+  <strong>Fim:</strong>
+  <%= @course.ends_at %>
+</p>
+
+<%= link_to 'Editar', edit_course_path(@course), class: 'btn btn-default btn-sm'  %> |
+<%= link_to 'Voltar', courses_path, class: 'btn btn-default btn-sm'  %> |
+<%= link_to 'Deletar', @course, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Tem certeza?' } %>
