@@ -20,6 +20,10 @@ gem 'brazilian-rails'
 gem 'cocoon'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'therubyracer', platforms: :ruby
+# NOTE: Kaminari has to be loaded before Elasticsearch::Model so the callbacks are executed
+gem 'kaminari'
+gem 'elasticsearch'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
