@@ -1,12 +1,72 @@
+<hr>
+
 <footer class="footer">
-  <small>
-    Desenvolvido por
-    <a href="https://github.com/jcvicelli/" target="_blank">Jean Carlo Vicelli</a>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Sobre",  about_path %></li>
-      <li><%= link_to "Contato", contact_path %></li>
-    </ul>
-  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 social-footer">
+        <div class="row">
+          <div class="col-sm-1 col-sm-push-4 social-footer">
+            <a href="http://www.facebook.com">
+              <%= image_tag("icon-facebook.png", alt: "facebook", class: "img-responsive") %>
+            </a>
+          </div>
+          <div class="col-sm-1 col-sm-push-4 social-footer">
+            <a href="http://plus.google.com">
+              <%= image_tag("icon-google.png", alt: "google+", class: "img-responsive") %>
+            </a>
+          </div>
+          <div class="col-sm-1 col-sm-push-4 social-footer">
+            <a href="http://www.twitter.com">
+              <%= image_tag("icon-twitter.png", alt: "twitter", class: "img-responsive") %>
+            </a>
+          </div>
+          <div class="col-sm-1 col-sm-push-4 social-footer">
+            <a href="http://www.youtube.com">
+              <%= image_tag("icon-youtube.png", alt: "youtube", class: "img-responsive") %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row fotter-links"> </div>
+      <div class="row">
+        <div class="col-sm-2 col-sm-push-3">
+          <h6>SOBRE</h6>
+          <ul class="list-unstyled">
+            <li><%= link_to "Quem somos",  about_path %></li>
+            <li><%= link_to "Como funciona",  about_path %></li>
+            <li><%= link_to "Servicos oferecidos",  about_path %></li>
+            <li><%= link_to "Termos de uso",  about_path %></li>
+            <li><%= link_to "Política de privicidade",  about_path %></li>
+          </ul>
+        </div>
+        <div class="col-sm-2 col-sm-push-3">
+          <h6>PARCEIROS</h6>
+          <ul class="list-unstyled">
+            <li><%= link_to "Empresas",  about_path %></li>
+            <li><%= link_to "Instituições de ensino",  about_path %></li>
+            <li><%= link_to "Palestrantes",  about_path %></li>
+            <li><%= link_to "Estudantes e profissionais",  about_path %></li>
+          </ul>
+        </div>
+        <div class="col-sm-2 col-sm-push-3">
+          <h6>CONTATO</h6>
+          <ul class="list-unstyled">
+            <li><%= link_to "Contato", contact_path %></li>
+            <li><%= link_to "Dúvidas frequentes", contact_path %></li>
+            <li><%= link_to "Suporte", contact_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row fotter-links">
+      <div class="row">
+        <div class="col-sm-12 rodape">
+          <p> Copyright © <%= Time.now.year %> Busca Curso &nbsp;
+            Desenvolvido por <a href="https://github.com/jcvicelli/" target="_blank">Jean Carlo Vicelli</a>
+            Design por <a href="https://github.com/lcampagnin/" target="_blank">Luciane Campagnin</a>
+          </p>
+        </div>
+      </div>
+    </div>
 </footer>
