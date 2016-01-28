@@ -41,7 +41,7 @@
         <td><%= hit.try(:highlight).try(:description) ? hit.highlight.description.join.html_safe : course.description %></td>
         <td><%= hit.try(:highlight).try(:about) ? hit.highlight.about.join('&hellip;').html_safe : course.about %></td>
         <td><%= course.place %></td>
-        <td><%= course.company %></td>
+        <td><%= course.company.name %></td>
         <td><%= course.rating %></td>
         <td><%= course.begins_at %></td>
         <td><%= course.ends_at %></td>
