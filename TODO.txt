@@ -30,3 +30,8 @@ rails runner 'Course.__elasticsearch__.create_index! force: true'
       JSON.parse(ENV['VCAP_SERVICES']['searchly'][0]['credentials']['uri']) || 'http://site:xyz-searchly.com'
 
   Elasticsearch::Model.client = Elasticsearch::Client.new host: elasticsearch_url
+
+
+  ▸    WARNING: Configure your app's DNS provider to point to the DNS Target
+ ▸    buscacurso.herokuapp.com.
+ ▸    For help, see https://devcenter.heroku.com/articles/custom-domains
