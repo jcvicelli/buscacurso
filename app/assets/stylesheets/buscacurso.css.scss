@@ -4,7 +4,7 @@
     height: 50%;
 }
 
-.body-center {
+.body-center, .alert {
   padding-top: 60px;
 }
 .center h1 {
@@ -88,7 +88,7 @@ footer h6 {
 .footer a:hover {
 	color:#E3C500;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bold;body { padding-top: 70px; }
 }
 	/* visited link */
 .footer a:visited {
@@ -130,3 +130,5 @@ div.pagination {
 div.pagination ul {
   display: inline-block;
 }
+
+body { padding-top: 70px; }

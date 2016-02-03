@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Buscacurso</title>
+    <title>SeekAT</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -11,20 +11,21 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container-fluid">
-      <div class="row">
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"> <%= value %></div>
-        <% end %>
-
-        <%= yield :top_content %>
-
-        <div class="container body-center">
-          <%= yield %>
+      <%= yield :top_content %>
+    </div>
+    <div class="container">
+        <div class="row">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"> <%= value %></div>
+          <% end %>
         </div>
 
-        <%= render 'layouts/footer' %>
-
-      </div>
+      <%= yield %>
     </div>
+
+      <%= render 'layouts/footer' %>
+
+
+
   </body>
 </html>
