@@ -10,22 +10,21 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container-fluid">
-      <%= yield :top_content %>
-    </div>
+
+    <%= yield :top_content %>
+
     <div class="container">
-        <div class="row">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"> <%= value %></div>
-          <% end %>
-        </div>
+      <br>
+      <div class="row">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"> <%= value %></div>
+        <% end %>
+      </div>
 
       <%= yield %>
     </div>
 
-      <%= render 'layouts/footer' %>
-
-
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>

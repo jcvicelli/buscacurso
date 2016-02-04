@@ -1,4 +1,5 @@
-<% header "Desbloquear conta" %>
+
+<h1>Desbloquear conta</h1>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>

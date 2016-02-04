@@ -1,4 +1,4 @@
-<% header "Editar #{User.model_name.human}" %>
+<h1> Minha Conta</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
@@ -38,8 +38,6 @@
 
   <%= f.submit "Atualizar", class: 'btn btn-primary' %>
 <% end %>
-
-<h3>Cancelar minha conta</h3>
 
 <p>
   <%= button_to "Cancelar minha conta", registration_path(resource_name), class: 'btn btn-danger',

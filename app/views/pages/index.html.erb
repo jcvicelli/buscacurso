@@ -1,57 +1,60 @@
 <% content_for :top_content do %>
 
-  <!-- Half Page Image Background Carousel Header -->
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-    <ol class="carousel-indicators">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Half Page Image Background Carousel Header -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-      <!-- Wrapper for Slides -->
-      <div class="carousel-inner" role="listbox">
+        </ol>
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner" role="listbox">
           <div class="item active">
-              <!-- Set the first background image using inline CSS below. -->
+            <!-- Set the first background image using inline CSS below. -->
             <div class="fill"><%= image_tag("carousel-01.jpg", alt: "Slide1", class: "img-responsive") %></div>
-              <div class="carousel-caption">
-                  <h2>Todos os cursos em um só lugar!</h2>
-              </div>
+            <div class="carousel-caption">
+              <h2>Todos os cursos em um só lugar!</h2>
+            </div>
           </div>
           <div class="item">
-              <!-- Set the second background image using inline CSS below. -->
+            <!-- Set the second background image using inline CSS below. -->
             <div class="fill"><%= image_tag("carousel-02.jpg", alt: "Slide2", class: "img-responsive") %></div>
-              <div class="carousel-caption">
-                  <h2>Encontre o curso certo para você!</h2>
-              </div>
+            <div class="carousel-caption">
+              <h2>Encontre o curso certo para você!</h2>
+            </div>
           </div>
           <div class="item">
-              <!-- Set the third background image using inline CSS below. -->
-              <div class="fill"><%= image_tag("carousel-03.jpg", alt: "Slide3", class: "img-responsive") %></div>
-              <div class="carousel-caption">
-                  <h2>Encontre o curso certo para você!</h2>
-              </div>
+            <!-- Set the third background image using inline CSS below. -->
+            <div class="fill"><%= image_tag("carousel-03.jpg", alt: "Slide3", class: "img-responsive") %></div>
+            <div class="carousel-caption">
+              <h2>Encontre o curso certo para você!</h2>
+            </div>
           </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="icon-next"></span>
+        </a>
       </div>
 
-      <!-- Controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="icon-prev"></span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="icon-next"></span>
-      </a>
-    </div>
-
-    <div class="parceiros">
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Nossos parceiros </h3>
-          <p>A SeekAT acredita que parcerias com instituições de ensino, empresas
-              e profissionais são parceirias indispensáveis para a propagação do conhecimento.
-             Por isso buscamos os melhores parceiros para ajudar você a dar um UP
-              na sua carreira.</p>
+      <div class="parceiros">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Nossos parceiros </h3>
+            <p>A SeekAT acredita que parcerias com instituições de ensino, empresas
+                e profissionais são parceirias indispensáveis para a propagação do conhecimento.
+               Por isso buscamos os melhores parceiros para ajudar você a dar um UP
+                na sua carreira.</p>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 <% end %>
