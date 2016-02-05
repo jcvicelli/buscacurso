@@ -21,8 +21,10 @@
 </p>
 
 <p>
-  <strong>Empresa:</strong>
-  <%= @course.company.name %>
+  <% if @course.company %>
+    <strong>Empresa:</strong>
+    <%= @course.company.name %>
+  <% end %>
 </p>
 
 <p>
