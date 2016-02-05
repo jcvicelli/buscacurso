@@ -1,6 +1,7 @@
 <% if @company.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <%= pluralize(@company.errors.count, "erro") %>
       <ul>
       <% @company.errors.full_messages.each do |msg| %>
