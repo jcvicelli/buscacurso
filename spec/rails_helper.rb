@@ -16,10 +16,21 @@ require 'factory_girl_rails'
 include Warden::Test::Helpers
 Warden.test_mode!
 
+module AuthHelpers
+  def sign_in_with (user)
+    visit '/'
+    click_link "Log in"
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'Log in'
+  end
+end
+
 RSpec.configure do |config|
   config.after :each do
     Warden.test_reset!
   end
+  config.include AuthHelpers, type: :feature
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
