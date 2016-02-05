@@ -21,6 +21,7 @@ gem 'cocoon'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'therubyracer', platforms: :ruby
+gem 'simple_form'
 # NOTE: Kaminari has to be loaded before Elasticsearch::Model so the callbacks are executed
 gem 'kaminari'
 gem 'elasticsearch'
