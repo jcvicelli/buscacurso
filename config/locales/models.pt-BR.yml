@@ -5,6 +5,7 @@ pt-BR:
       company: Empresa
       category_type: Categoria
       category: Categoria
+      area: Area
     attributes:
       user:
         login: "Login"
@@ -24,3 +25,5 @@ pt-BR:
         name: "Nome"
         category_id: "Categoria"
         category: "Categoria"
+      area:
+        name: "Nome"

@@ -36,11 +36,7 @@ rails runner 'Course.__elasticsearch__.create_index! force: true'
 rails g model Category name:index
 rails g scaffold CategoryType name:index category:references
 
-*Cadastro categorias:
-eventos | cursos
-xxx
-xx
-xx
+rails g scaffold Area name:index
 
 *Cadastro de Área
 -Agricultura

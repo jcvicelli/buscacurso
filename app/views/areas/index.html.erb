@@ -1,0 +1,23 @@
+
+<h1>Areas</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @areas.each do |area| %>
+        <tr>
+          <td><%= link_to area.name , area%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<%= link_to "Nova Area",  new_area_path, class: 'btn btn-default btn-sm' %>

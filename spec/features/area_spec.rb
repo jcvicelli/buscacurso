@@ -1,31 +1,29 @@
 require 'rails_helper'
 
-feature "adding category" do
+feature "adding area" do
 
   #create saves to db, build dont
   given(:user) { user = FactoryGirl.create(:user)}
-  given(:category_type) { category_type = FactoryGirl.build(:category_type)}
-  given!(:category) { category = FactoryGirl.build(:category)}
+  given(:area) { area = FactoryGirl.build(:area)}
 
   background do
     sign_in_with user
     visit '/'
   end
 
-  def fill_in_category_fields
-    page.select(category.name, from: 'category_type_category_id')
-    fill_in "category_type[name]", with: category_type.name
+  def fill_in_area_fields
+    fill_in "area[name]", with: area.name
   end
 
-  scenario "visiting site to add category" do
+  scenario "visiting site to add area" do
     visit '/'
     within(".dropdown") do
-        click_link "Categorias"
+        click_link "Area"
     end
-    click_link "Nova Categoria"
-    fill_in_category_fields
+    click_link "Nova Area"
+    fill_in_area_fields
     click_button "Salvar"
-    expect(page).to have_content(category_type.name)
+    expect(page).to have_content(area.name)
   end
 
   scenario "visiting site to edit category" do
