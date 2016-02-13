@@ -1,0 +1,14 @@
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @category_type.category.name %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @category_type.name %>
+</p>
+
+<%= link_to 'Editar', edit_category_type_path(@category_type), class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Voltar', category_types_path, class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Deletar', @category_type, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Tem certeza?' } %>

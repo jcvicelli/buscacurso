@@ -3,6 +3,8 @@ pt-BR:
     models:
       user: Usuario
       company: Empresa
+      category_type: Categoria
+      category: Categoria
     attributes:
       user:
         login: "Login"
@@ -16,3 +18,9 @@ pt-BR:
         name: "Nome"
         contact: "Contato"
         user_id: "Usuario"
+      category:
+        name: "Nome"
+      category_type:
+        name: "Nome"
+        category_id: "Categoria"
+        category: "Categoria"

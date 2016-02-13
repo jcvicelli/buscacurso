@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :category_types
   resources :courses do
     collection { get :search }
   end
