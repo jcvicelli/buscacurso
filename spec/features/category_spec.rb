@@ -5,7 +5,7 @@ feature "adding category" do
   #create saves to db, build dont
   given(:user) { user = FactoryGirl.create(:user)}
   given(:category_type) { category_type = FactoryGirl.build(:category_type)}
-  given!(:category) { category = FactoryGirl.build(:category)}
+  given!(:category) { category = FactoryGirl.create(:category)}
 
   background do
     sign_in_with user
