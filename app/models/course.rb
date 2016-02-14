@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
   belongs_to :company
+  validates :title,  presence: true
 
   def self.search(query)
     __elasticsearch__.search(

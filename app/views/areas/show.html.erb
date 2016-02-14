@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @area.name %>
 </p>
 
-<%= link_to 'Edit', edit_area_path(@area) %> |
-<%= link_to 'Back', areas_path %>
+<%= link_to 'Editar', edit_area_path(@area), class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Voltar', areas_path, class: 'btn btn-default btn-sm' %> |
+<%= link_to 'Deletar', @area, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Tem certeza?' } %>

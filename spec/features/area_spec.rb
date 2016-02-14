@@ -18,7 +18,7 @@ feature "adding area" do
   scenario "visiting site to add area" do
     visit '/'
     within(".dropdown") do
-        click_link "Area"
+        click_link "Areas"
     end
     click_link "Nova Area"
     fill_in_area_fields
@@ -26,18 +26,18 @@ feature "adding area" do
     expect(page).to have_content(area.name)
   end
 
-  scenario "visiting site to edit category" do
-    category_type = FactoryGirl.create(:category_type)
+  scenario "visiting site to edit area" do
+    area = FactoryGirl.create(:area)
     visit '/'
     within(".dropdown") do
-        click_link "Categorias"
+        click_link "Areas"
     end
-    expect(page).to have_content(category_type.name)
-    click_link category_type.name
+    expect(page).to have_content(area.name)
+    click_link area.name
     click_link "Editar"
-    category_type.name = "Mestrado"
-    fill_in "category_type[name]", with: category_type.name
+    area.name = "History"
+    fill_in "area[name]", with: area.name
     click_button "Salvar"
-    expect(page).to have_content(category_type.name)
+    expect(page).to have_content(area.name)
   end
 end

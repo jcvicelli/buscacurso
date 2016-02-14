@@ -3,6 +3,7 @@ pt-BR:
     models:
       user: Usuario
       company: Empresa
+      course: Curso
       category_type: Categoria
       category: Categoria
       area: Area
@@ -19,6 +20,11 @@ pt-BR:
         name: "Nome"
         contact: "Contato"
         user_id: "Usuario"
+      course:
+        title: "Título"
+        company: "Empresa"
+        begins_at: "Início"
+        ends_at: "Fim"
       category:
         name: "Nome"
       category_type:
