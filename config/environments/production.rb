@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # Heroku mailer config
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'seekat.info' }
+  config.action_mailer.default_url_options = { host: 'www.seekat.info' }
 
   ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.sendgrid.net',
