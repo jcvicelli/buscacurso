@@ -7,6 +7,7 @@ pt-BR:
       category_type: Categoria
       category: Categoria
       area: Area
+      certificate: Certificado
     attributes:
       user:
         login: "Login"
@@ -32,4 +33,6 @@ pt-BR:
         category_id: "Categoria"
         category: "Categoria"
       area:
+        name: "Nome"
+      certificate:
         name: "Nome"

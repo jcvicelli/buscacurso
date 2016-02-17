@@ -29,7 +29,7 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to @area, notice: 'Area was successfully created.' }
+        format.html { redirect_to @area, notice: 'Area criada com sucesso.' }
         format.json { render :show, status: :created, location: @area }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class AreasController < ApplicationController
   def update
     respond_to do |format|
       if @area.update(area_params)
-        format.html { redirect_to @area, notice: 'Area was successfully updated.' }
+        format.html { redirect_to @area, notice: 'Area atualizada com sucesso..' }
         format.json { render :show, status: :ok, location: @area }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class AreasController < ApplicationController
   def destroy
     @area.destroy
     respond_to do |format|
-      format.html { redirect_to areas_url, notice: 'Area was successfully destroyed.' }
+      format.html { redirect_to areas_url, notice: 'Area deletada com sucesso.' }
       format.json { head :no_content }
     end
   end

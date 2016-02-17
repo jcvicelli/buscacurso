@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213171936) do
+ActiveRecord::Schema.define(version: 20160217215741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20160213171936) do
   add_index "category_types", ["category_id"], name: "index_category_types_on_category_id", using: :btree
   add_index "category_types", ["name"], name: "index_category_types_on_name", using: :btree
 
+  create_table "certificates", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "certificates", ["name"], name: "index_certificates_on_name", using: :btree
+
   create_table "companies", force: :cascade do |t|
     t.string   "cnpj"
     t.string   "name"
@@ -65,11 +73,26 @@ ActiveRecord::Schema.define(version: 20160213171936) do
     t.string   "rating"
     t.datetime "begins_at"
     t.datetime "ends_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "total_hours"
+    t.integer  "mode_id"
+    t.integer  "area_id"
+    t.integer  "certificate_id"
+    t.string   "investment"
+    t.string   "payment_method"
+    t.string   "requirements"
+    t.string   "content"
+    t.string   "keywords"
+    t.string   "lecturer_name"
+    t.string   "lecturer_resume"
+    t.string   "link_inscription"
   end
 
+  add_index "courses", ["area_id"], name: "index_courses_on_area_id", using: :btree
+  add_index "courses", ["certificate_id"], name: "index_courses_on_certificate_id", using: :btree
   add_index "courses", ["company_id"], name: "index_courses_on_company_id", using: :btree
+  add_index "courses", ["mode_id"], name: "index_courses_on_mode_id", using: :btree
   add_index "courses", ["title"], name: "index_courses_on_title", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -104,6 +127,14 @@ ActiveRecord::Schema.define(version: 20160213171936) do
   add_index "enderecos", ["company_id"], name: "index_enderecos_on_company_id", using: :btree
   add_index "enderecos", ["user_id"], name: "index_enderecos_on_user_id", using: :btree
 
+  create_table "modes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "modes", ["name"], name: "index_modes_on_name", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "name"
@@ -137,7 +168,10 @@ ActiveRecord::Schema.define(version: 20160213171936) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "category_types", "categories"
+  add_foreign_key "courses", "areas"
+  add_foreign_key "courses", "certificates"
   add_foreign_key "courses", "companies"
+  add_foreign_key "courses", "modes"
   add_foreign_key "enderecos", "companies"
   add_foreign_key "enderecos", "users"
 end
