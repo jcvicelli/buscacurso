@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217215741) do
+ActiveRecord::Schema.define(version: 20160219000503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20160217215741) do
   end
 
   add_index "areas", ["name"], name: "index_areas_on_name", using: :btree
+
+  create_table "areas_courses", id: false, force: :cascade do |t|
+    t.integer "area_id",   null: false
+    t.integer "course_id", null: false
+  end
+
+  add_index "areas_courses", ["area_id", "course_id"], name: "index_areas_courses_on_area_id_and_course_id", using: :btree
+  add_index "areas_courses", ["course_id", "area_id"], name: "index_areas_courses_on_course_id_and_area_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -81,15 +89,17 @@ ActiveRecord::Schema.define(version: 20160217215741) do
     t.integer  "certificate_id"
     t.string   "investment"
     t.string   "payment_method"
-    t.string   "requirements"
+    t.text     "requirements"
     t.string   "content"
     t.string   "keywords"
     t.string   "lecturer_name"
-    t.string   "lecturer_resume"
+    t.text     "lecturer_resume"
     t.string   "link_inscription"
+    t.integer  "category_type_id"
   end
 
   add_index "courses", ["area_id"], name: "index_courses_on_area_id", using: :btree
+  add_index "courses", ["category_type_id"], name: "index_courses_on_category_type_id", using: :btree
   add_index "courses", ["certificate_id"], name: "index_courses_on_certificate_id", using: :btree
   add_index "courses", ["company_id"], name: "index_courses_on_company_id", using: :btree
   add_index "courses", ["mode_id"], name: "index_courses_on_mode_id", using: :btree
@@ -169,6 +179,7 @@ ActiveRecord::Schema.define(version: 20160217215741) do
 
   add_foreign_key "category_types", "categories"
   add_foreign_key "courses", "areas"
+  add_foreign_key "courses", "category_types"
   add_foreign_key "courses", "certificates"
   add_foreign_key "courses", "companies"
   add_foreign_key "courses", "modes"

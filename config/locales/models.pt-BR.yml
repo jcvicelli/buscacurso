@@ -2,12 +2,13 @@ pt-BR:
   activerecord:
     models:
       user: Usuario
-      company: Empresa
+      company: Parceiro
       course: Curso
       category_type: Categoria
       category: Categoria
       area: Area
       certificate: Certificado
+      mode: Modo
     attributes:
       user:
         login: "Login"
@@ -23,9 +24,22 @@ pt-BR:
         user_id: "Usuario"
       course:
         title: "Título"
-        company: "Empresa"
+        company: "Parceiro"
         begins_at: "Início"
         ends_at: "Fim"
+        total_hours: "Carga Horária Total"
+        mode: "Modo"
+        areas: "Áreas do Curso"
+        category_type: "Tipo"
+        certificate: "Certificado"
+        investment: "Investimento"
+        payment_method: "Forma de Pagamento"
+        requirements: "Requisitos Mínimos"
+        content: "Conteúdo Programático"
+        keywords: "Palavras Chaves"
+        lecturer_name: "Nome do Ministrante"
+        lecturer_resume: "Mini Currículo Ministrante"
+        link_inscription: "Link de onde realizar a inscrição"
       category:
         name: "Nome"
       category_type:
@@ -35,4 +49,6 @@ pt-BR:
       area:
         name: "Nome"
       certificate:
+        name: "Nome"
+      mode:
         name: "Nome"

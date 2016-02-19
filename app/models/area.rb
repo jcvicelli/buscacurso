@@ -1,5 +1,5 @@
 class Area < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 50}
 
-  belongs_to :course
+  has_and_belongs_to_many :courses
 end

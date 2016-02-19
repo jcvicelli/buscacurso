@@ -4,8 +4,8 @@ feature "visiting static pages" do
 
   scenario "visiting be_company" do
     visit root_path
-    click_link "Seja um Organizador"
-    expect(page).to have_content( "Requisitos para ser um organizador" )
+    click_link "Seja um Parceiro"
+    expect(page).to have_content( "Seja um Parceiro" )
     find_link('Cadastre-se').visible?
   end
 

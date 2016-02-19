@@ -3,6 +3,11 @@ class Course < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
   belongs_to :company
+  belongs_to :mode
+  belongs_to :certificate
+  belongs_to :category_type
+  has_and_belongs_to_many :areas
+
   validates :title,  presence: true
 
   def self.search(query)

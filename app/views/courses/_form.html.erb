@@ -16,6 +16,9 @@
     <%= f.text_field :place, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.association :category_type , class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.association :company , class: 'form-control' %>
   </div>
   <div class="form-group">
@@ -27,6 +30,40 @@
   </div>
   <div class="form-group">
     <%= f.input :ends_at , class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :total_hours , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.association :mode, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.association :areas, class: 'form-control' %>
+    <small class="text-muted">Use o <kbd>CTRL</kbd> para selecionar mais de uma Area</small>
+  </div>
+  <div class="form-group">
+    <%= f.association :certificate, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :investment , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :payment_method , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :requirements , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :keywords , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :lecturer_name , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :lecturer_resume , class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :link_inscription , class: 'form-control' %>
   </div>
   <br>
   <%= f.submit "Salvar", class: 'btn btn-primary' %>

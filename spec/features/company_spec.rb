@@ -30,9 +30,9 @@ feature "signing in devise" do
   scenario "visiting site to add company" do
     visit '/'
     within(".dropdown") do
-        click_link "Empresas"
+        click_link "Parceiros"
     end
-    click_link "Nova Empresa"
+    click_link "Novo Parceiro"
     fill_in_company_fields
     click_link "Adicionar Endereço"
     click_button "Salvar"
