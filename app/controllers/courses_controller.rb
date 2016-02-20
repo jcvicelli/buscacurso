@@ -2,7 +2,6 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :search]
 
-  @areas = Area.all
   # GET /courses
   # GET /courses.json
   def index
@@ -78,8 +77,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:title, :description, :about, :place, :company_id, :rating, :begins_at, :ends_at,
-          :total_hours, :mode_id, :certificate_id, :investment, :payment_method, :requirements,
-          :content, :keywords, :lecturer_name, :lecturer_resume, :link_inscription, :category_type_id, :area_ids => [])
+      params.require(:course).permit(:title, :description, :about, :place, :company_id, :rating, :begins_at, :ends_at)
     end
 end
