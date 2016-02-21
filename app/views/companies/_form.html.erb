@@ -17,7 +17,7 @@
   <div class="form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email, class: 'form-control' %>
-  </div>  
+  </div>
   <div class="form-group">
     <%= f.label :site %><br>
     <%= f.text_field :site, class: 'form-control' %>
@@ -30,9 +30,10 @@
   <h3>Endereços: </h3><br>
   <div class="enderecos">
     <%= f.fields_for :enderecos do |e| %>
-      <%= render 'endereco_fields', f: e %>
+      <%= render 'enderecos/endereco_fields', f: e %>
     <% end %>
-    <%= link_to_add_association "Adicionar Endereço", f, :enderecos, class: "btn btn-default" %>
+    <%= link_to_add_association "Adicionar Endereço", f, :enderecos,
+            partial: 'enderecos/endereco_fields', class: "btn btn-default" %>
   </div>
 
   <br>

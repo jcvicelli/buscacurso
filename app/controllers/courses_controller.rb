@@ -70,6 +70,16 @@ class CoursesController < ApplicationController
     end
   end
 
+  def localizar_endereco
+    # Classe do brazilian-rails responsavél pela busca de endereco.
+    @endereco = BuscaEndereco.cep params[:cep]
+    endereco = @endereco.fetch(0)
+    numero = @endereco.fetch(1)
+    bairro = @endereco.fetch(2)
+    estado = @endereco.fetch(3)
+    cidade = @endereco.fetch(4)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
@@ -81,6 +91,7 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:title, :description, :about, :place, :company_id, :rating, :begins_at, :ends_at,
             :total_hours, :mode_id, :certificate_id, :investment, :payment_method, :requirements,
             :content, :keywords, :lecturer_name, :lecturer_resume, :link_inscription, :category_type_id,
-            :free, :price, :area_ids => [])
+            :free, :price, :area_ids => [], enderecos_attributes: [:id,:cep, :cidade, :estado,
+              :bairro, :logradouro, :numero, :_destroy])
     end
 end

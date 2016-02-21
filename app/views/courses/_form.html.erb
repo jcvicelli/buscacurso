@@ -58,6 +58,16 @@
   <div class="form-group">
     <%= f.input :link_inscription , class: 'form-control' %>
   </div>
+
+  <h3>Endereços: </h3><br>
+  <div class="enderecos">
+    <%= f.fields_for :enderecos do |e| %>
+      <%= render 'enderecos/endereco_fields', f: e %>
+    <% end %>
+    <%= link_to_add_association "Adicionar Endereço", f, :enderecos,
+              partial: 'enderecos/endereco_fields', class: "btn btn-default" %>
+  </div>
+
   <br>
   <%= f.submit "Salvar", class: 'btn btn-primary' %>
 <% end %>

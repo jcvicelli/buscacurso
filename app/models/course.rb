@@ -12,6 +12,8 @@ class Course < ActiveRecord::Base
   validates :company_id,  presence: true
 
   monetize :price_centavos
+  has_many :enderecos
+  accepts_nested_attributes_for :enderecos, :reject_if => :all_blank, :allow_destroy => true
 
   def self.search(query)
     __elasticsearch__.search(
