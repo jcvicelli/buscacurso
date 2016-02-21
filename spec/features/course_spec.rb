@@ -14,7 +14,6 @@ feature "signing in devise" do
   def fill_in_course_fields
     fill_in "course[title]", with: course.title
     fill_in "course[description]", with: course.description
-    fill_in "course[place]", with: course.place
     page.select(company.name, from: 'course_company_id')
   end
 

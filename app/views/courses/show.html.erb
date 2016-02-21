@@ -1,11 +1,11 @@
 
 <p>
-  <strong>Titulo:</strong>
+  <strong>Nome do curso/evento:</strong>
   <%= @course.title %>
 </p>
 
 <p>
-  <strong>Descrição:</strong>
+  <strong>Conteúdo programático:</strong>
   <%= @course.description %>
 </p>
 
@@ -15,20 +15,10 @@
 </p>
 
 <p>
-  <strong>Local:</strong>
-  <%= @course.place %>
-</p>
-
-<p>
   <% if @course.company %>
     <strong>Empresa:</strong>
     <%= @course.company.name %>
   <% end %>
-</p>
-
-<p>
-  <strong>Avaliação:</strong>
-  <%= @course.rating %>
 </p>
 
 <p>

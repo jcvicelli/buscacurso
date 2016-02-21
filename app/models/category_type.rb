@@ -4,4 +4,8 @@ class CategoryType < ActiveRecord::Base
 
   validates :name,  presence: true, length: { maximum: 50}
   validates :category_id,  presence: true
+
+  def select_label
+    "#{category.name} | #{name}"
+  end
 end

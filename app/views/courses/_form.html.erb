@@ -4,26 +4,17 @@
     <%= f.input :title , class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :Descrição %><br>
-    <%= f.text_area :description, class: 'form-control' %>
+    <%= f.input :description, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :Sobre %><br>
     <%= f.text_area :about, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :Local %><br>
-    <%= f.text_field :place, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.association :category_type , class: 'form-control' %>
+    <%= f.association :category_type , label_method: :select_label, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.association :company , class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :Avaliação %><br>
-    <%= f.text_field :rating , class: 'form-control'%>
   </div>
   <div class="form-group">
     <%= f.input :begins_at , class: 'form-control'%>
@@ -33,19 +24,21 @@
   </div>
   <div class="form-group">
     <%= f.input :total_hours , class: 'form-control' %>
+    <small class="text-muted">hora(s).</small>
   </div>
   <div class="form-group">
     <%= f.association :mode, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.association :areas, class: 'form-control' %>
-    <small class="text-muted">Use o <kbd>CTRL</kbd> para selecionar mais de uma Area</small>
+    <small class="text-muted">Use o <kbd>CTRL</kbd> para selecionar mais de uma área.</small>
   </div>
   <div class="form-group">
     <%= f.association :certificate, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.input :investment , class: 'form-control' %>
+    <%= f.input :price , class: 'form-control' %>
+    <%= f.input :free , class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.input :payment_method , class: 'form-control' %>

@@ -23,12 +23,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Titulo</th>
-      <th>Descrição</th>
+      <th>Nome do curso/evento</th>
+      <th>Conteúdo programático</th>
       <th>Sobre</th>
-      <th>Onde</th>
       <th>Empresa</th>
-      <th>Avaliação</th>
       <th>Início</th>
       <th>Fim</th>
     </tr>
@@ -40,7 +38,6 @@
         <td><%= link_to hit.try(:highlight).try(:title)   ? hit.highlight.title.join.html_safe : course.title, course %></td>
         <td><%= hit.try(:highlight).try(:description) ? hit.highlight.description.join.html_safe : course.description %></td>
         <td><%= hit.try(:highlight).try(:about) ? hit.highlight.about.join('&hellip;').html_safe : course.about %></td>
-        <td><%= course.place %></td>
         <td>
           <% if course.company %>
             <%= course.company.name %>

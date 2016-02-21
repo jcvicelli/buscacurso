@@ -11,6 +11,8 @@ class Course < ActiveRecord::Base
   validates :title,  presence: true
   validates :company_id,  presence: true
 
+  monetize :price_centavos
+
   def self.search(query)
     __elasticsearch__.search(
       {

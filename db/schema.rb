@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219000503) do
+ActiveRecord::Schema.define(version: 20160221125256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,13 +81,12 @@ ActiveRecord::Schema.define(version: 20160219000503) do
     t.string   "rating"
     t.datetime "begins_at"
     t.datetime "ends_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "total_hours"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "total_hours"
     t.integer  "mode_id"
     t.integer  "area_id"
     t.integer  "certificate_id"
-    t.string   "investment"
     t.string   "payment_method"
     t.text     "requirements"
     t.string   "content"
@@ -96,6 +95,9 @@ ActiveRecord::Schema.define(version: 20160219000503) do
     t.text     "lecturer_resume"
     t.string   "link_inscription"
     t.integer  "category_type_id"
+    t.integer  "price_centavos",   default: 0,     null: false
+    t.string   "price_currency",   default: "BRL", null: false
+    t.boolean  "free"
   end
 
   add_index "courses", ["area_id"], name: "index_courses_on_area_id", using: :btree
