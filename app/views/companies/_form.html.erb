@@ -1,4 +1,4 @@
-<%= form_for(@company) do |f| %>
+<%= simple_form_for(@company) do |f| %>
   <%= render "companies/shared/error_messages" %>
 
   <div class="form-group">
@@ -19,6 +19,13 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.association :user, class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.association :category_types , label_method: :select_label, class: 'form-control' %>
+    <small class="text-muted">Use o <kbd>CTRL</kbd> para selecionar mais de uma área.</small>
+  </div>
+  <div class="form-group">
     <%= f.label :site %><br>
     <%= f.text_field :site, class: 'form-control' %>
   </div>
@@ -26,7 +33,11 @@
     <%= f.label :contact %><br>
     <%= f.text_field :contact, class: 'form-control'%>
   </div>
+  <div class="form-group">
+    <%= f.input :marketing, class: 'form-control'%>
+  </div>
 
+  <br>
   <h3>Endereços: </h3><br>
   <div class="enderecos">
     <%= f.fields_for :enderecos do |e| %>

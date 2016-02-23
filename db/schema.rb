@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221133253) do
+ActiveRecord::Schema.define(version: 20160223000807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20160221133253) do
   add_index "category_types", ["category_id"], name: "index_category_types_on_category_id", using: :btree
   add_index "category_types", ["name"], name: "index_category_types_on_name", using: :btree
 
+  create_table "category_types_companies", id: false, force: :cascade do |t|
+    t.integer "category_type_id", null: false
+    t.integer "company_id",       null: false
+  end
+
+  add_index "category_types_companies", ["category_type_id", "company_id"], name: "category_type_company_index", using: :btree
+  add_index "category_types_companies", ["company_id", "category_type_id"], name: "company_category_type_index", using: :btree
+
   create_table "certificates", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -63,14 +71,19 @@ ActiveRecord::Schema.define(version: 20160221133253) do
     t.string   "name"
     t.string   "phone"
     t.string   "contact"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "email"
     t.string   "site"
+    t.integer  "user_id"
+    t.boolean  "marketing"
+    t.integer  "category_type_id"
   end
 
+  add_index "companies", ["category_type_id"], name: "index_companies_on_category_type_id", using: :btree
   add_index "companies", ["cnpj"], name: "index_companies_on_cnpj", unique: true, using: :btree
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "title"
@@ -150,13 +163,13 @@ ActiveRecord::Schema.define(version: 20160221133253) do
   add_index "modes", ["name"], name: "index_modes_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                  default: "",    null: false
     t.string   "name"
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -165,13 +178,14 @@ ActiveRecord::Schema.define(version: 20160221133253) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",        default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -182,6 +196,8 @@ ActiveRecord::Schema.define(version: 20160221133253) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   add_foreign_key "category_types", "categories"
+  add_foreign_key "companies", "category_types"
+  add_foreign_key "companies", "users"
   add_foreign_key "courses", "areas"
   add_foreign_key "courses", "category_types"
   add_foreign_key "courses", "certificates"

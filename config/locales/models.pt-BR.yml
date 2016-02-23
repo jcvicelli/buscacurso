@@ -20,8 +20,11 @@ pt-BR:
         cnpj: "CNPJ"
         phone: "Fone"
         name: "Nome"
-        contact: "Contato"
-        user_id: "Usuario"
+        contact: "Contato / Whatsapp / Outros"
+        user: "Usuário Responsável"
+        category_types: "Tipo de Cursos / Eventos que oferta"
+        marketing: "Aceito receber email marketing"
+        site: "Site / Redes Sociais"
       course:
         title: "Nome do curso/evento"
         description: "Conteúdo programático"

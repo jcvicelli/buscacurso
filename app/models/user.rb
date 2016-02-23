@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50}
+  has_many :enderecos
+  accepts_nested_attributes_for :enderecos, :reject_if => :all_blank, :allow_destroy => true
+  has_many :companies
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -47,6 +50,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_many :enderecos
-  accepts_nested_attributes_for :enderecos, :reject_if => :all_blank, :allow_destroy => true
 end

@@ -3,6 +3,8 @@ require 'rails_helper'
 feature "signing in devise" do
 
   given(:user) { user = FactoryGirl.create(:user)}
+  given!(:user2) { user2 = FactoryGirl.create(:user)}
+  given!(:admin) { admin = FactoryGirl.create(:user)}
   given(:company) { user = FactoryGirl.build(:company)}
   given(:endereco) { user = FactoryGirl.build(:endereco)}
 
@@ -27,7 +29,7 @@ feature "signing in devise" do
     fill_in "company[enderecos_attributes][new_enderecos][bairro]", with: endereco.bairro
   end
 
-  scenario "visiting site to add company" do
+  def add_new_company
     visit '/'
     within(".dropdown") do
         click_link "Parceiros"
@@ -36,6 +38,41 @@ feature "signing in devise" do
     fill_in_company_fields
     click_link "Adicionar Endereço"
     click_button "Salvar"
+  end
+
+  scenario "visiting site to add company" do
+    add_new_company
     expect(page).to have_content(company.name)
   end
+
+  scenario "another non-admin user can not edit company" do
+    add_new_company
+    click_link "Log out"
+    sign_in_with user2
+    visit '/'
+    within(".dropdown") do
+        click_link "Parceiros"
+    end
+    click_link company.name
+    page.driver.submit :delete, company.id, {}
+    expect(page).to have_content("Somente administradores e usuários master podem editar o Parceiro")
+
+  end
+
+  scenario "admin users can edit any company" do
+    add_new_company
+    click_link "Log out"
+    admin.admin = true
+    admin.save
+    sign_in_with admin
+    visit '/'
+    within(".dropdown") do
+        click_link "Parceiros"
+    end
+    click_link company.name
+    page.driver.submit :delete, company.id, {}
+    expect(page).to have_content("Parceiro apagado com sucesso.")
+
+  end
+
 end
