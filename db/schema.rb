@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223000807) do
+ActiveRecord::Schema.define(version: 20160225231244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160223000807) do
     t.integer  "price_centavos",   default: 0,     null: false
     t.string   "price_currency",   default: "BRL", null: false
     t.boolean  "free"
+    t.integer  "user_id"
   end
 
   add_index "courses", ["area_id"], name: "index_courses_on_area_id", using: :btree
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 20160223000807) do
   add_index "courses", ["company_id"], name: "index_courses_on_company_id", using: :btree
   add_index "courses", ["mode_id"], name: "index_courses_on_mode_id", using: :btree
   add_index "courses", ["title"], name: "index_courses_on_title", using: :btree
+  add_index "courses", ["user_id"], name: "index_courses_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -203,6 +205,7 @@ ActiveRecord::Schema.define(version: 20160223000807) do
   add_foreign_key "courses", "certificates"
   add_foreign_key "courses", "companies"
   add_foreign_key "courses", "modes"
+  add_foreign_key "courses", "users"
   add_foreign_key "enderecos", "companies"
   add_foreign_key "enderecos", "courses"
   add_foreign_key "enderecos", "users"

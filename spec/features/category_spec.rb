@@ -8,6 +8,8 @@ feature "adding category" do
   given!(:category) { category = FactoryGirl.create(:category)}
 
   background do
+    user.admin = true
+    user.save
     sign_in_with user
     visit '/'
   end

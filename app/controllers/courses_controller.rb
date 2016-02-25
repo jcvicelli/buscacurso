@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :search]
+  before_action :owned_course, only: [:edit, :update, :destroy]
 
   @areas = Area.all
   # GET /courses
@@ -23,7 +24,8 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    #@course = Course.new
+    @course = current_user.courses.build
   end
 
   # GET /courses/1/edit
@@ -33,7 +35,8 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
+    #@course = Course.new(course_params)
+    @course = current_user.courses.build(course_params)
 
     respond_to do |format|
       if @course.save
@@ -81,6 +84,12 @@ class CoursesController < ApplicationController
   end
 
   private
+    def owned_course
+      unless current_user.id == @course.user_id || current_user.admin?
+        flash[:alert] = "Somente usuários cadastrados no parceiro podem editar os eventos"
+        redirect_to root_path
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])
@@ -91,7 +100,7 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:title, :description, :about, :place, :company_id, :rating, :begins_at, :ends_at,
             :total_hours, :mode_id, :certificate_id, :investment, :payment_method, :requirements,
             :content, :keywords, :lecturer_name, :lecturer_resume, :link_inscription, :category_type_id,
-            :free, :price, :area_ids => [], enderecos_attributes: [:id,:cep, :cidade, :estado,
+            :free, :price, :user_id, :area_ids => [], enderecos_attributes: [:id,:cep, :cidade, :estado,
               :bairro, :logradouro, :numero, :_destroy])
     end
 end

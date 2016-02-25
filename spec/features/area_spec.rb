@@ -7,6 +7,8 @@ feature "adding area" do
   given(:area) { area = FactoryGirl.build(:area)}
 
   background do
+    user.admin = true
+    user.save
     sign_in_with user
     visit '/'
   end

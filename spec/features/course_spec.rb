@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "signing in devise" do
 
-  given(:user) { user = FactoryGirl.create(:user)}
+  given!(:user) { user = FactoryGirl.create(:user)}
   given(:course) { user = FactoryGirl.build(:course)}
   given!(:company) { user = FactoryGirl.create(:company)}
 

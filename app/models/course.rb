@@ -7,7 +7,9 @@ class Course < ActiveRecord::Base
   belongs_to :certificate
   belongs_to :category_type
   has_and_belongs_to_many :areas
-
+  belongs_to :user
+  
+  validates :user_id, presence: true
   validates :title,  presence: true
   validates :company_id,  presence: true
 

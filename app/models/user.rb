@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :enderecos
   accepts_nested_attributes_for :enderecos, :reject_if => :all_blank, :allow_destroy => true
   has_many :companies
+  has_many :courses
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },

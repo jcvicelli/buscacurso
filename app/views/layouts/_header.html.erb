@@ -33,8 +33,10 @@
               <li><%= link_to 'Minha Conta', edit_user_registration_path %></li>
               <li><%= link_to 'Parceiros', companies_path %></li>
               <li><%= link_to 'Cursos', courses_path %></li>
-              <li><%= link_to 'Categorias', category_types_path %></li>
-              <li><%= link_to 'Areas', areas_path %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to 'Categorias', category_types_path %></li>
+                <li><%= link_to 'Areas', areas_path %></li>
+              <% end %>
               <li class="divider"></li>
               <li><%= link_to raw('<span class="glyphicon glyphicon-log-out"></span> Log out'), destroy_user_session_path, method: :delete %></li>
             </ul>

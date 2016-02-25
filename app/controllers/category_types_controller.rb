@@ -1,6 +1,7 @@
 class CategoryTypesController < ApplicationController
   before_action :set_category_type, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :owned_category, only: [:edit, :update, :destroy]
 
   # GET /category_types
   # GET /category_types.json
@@ -63,6 +64,12 @@ class CategoryTypesController < ApplicationController
   end
 
   private
+    def owned_category
+      unless current_user.admin?
+        flash[:alert] = "Somente administradores e usuários master podem editar as categorias"
+        redirect_to root_path
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_category_type
       @category_type = CategoryType.find(params[:id])

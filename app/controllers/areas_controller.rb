@@ -1,6 +1,7 @@
 class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :owned_area, only: [:edit, :update, :destroy]
 
   # GET /areas
   # GET /areas.json
@@ -63,6 +64,14 @@ class AreasController < ApplicationController
   end
 
   private
+
+    def owned_area
+      unless current_user.admin?
+        flash[:alert] = "Somente administradores e usuários master podem editar as areas"
+        redirect_to root_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_area
       @area = Area.find(params[:id])
