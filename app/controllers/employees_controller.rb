@@ -9,8 +9,8 @@ class EmployeesController < ApplicationController
       flash[:success] = "Usuario salvo com sucesso!"
       redirect_to :back
     else
-      flash[:alert] = "Problemas ao salvar o usuario"
-      render root_path
+      flash[:alert] = "Problemas ao adicionar o usuario"
+      redirect_to :back
     end
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :employees
   end
 
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks" }
 
   root to: 'pages#index'
   get 'about'   => 'pages#about'
