@@ -78,10 +78,15 @@ feature "adding company" do
   scenario "add employees to company" do
     add_new_company
     visit '/'
+
     within(".dropdown") do
         click_link "Parceiros"
     end
+    user2.company_id = Company.find_by(name: company.name).id
+    user2.save
+
     click_link company.name
+
     page.select(user2.name, from: 'employee_user_id')
     click_button "Adicionar"
     expect(page).to have_content("Usuario salvo com sucesso!")
