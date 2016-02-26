@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "signing in devise" do
+feature "adding company" do
 
   given(:user) { user = FactoryGirl.create(:user)}
   given!(:user2) { user2 = FactoryGirl.create(:user)}
@@ -73,6 +73,18 @@ feature "signing in devise" do
     page.driver.submit :delete, company.id, {}
     expect(page).to have_content("Parceiro apagado com sucesso.")
 
+  end
+
+  scenario "add employees to company" do
+    add_new_company
+    visit '/'
+    within(".dropdown") do
+        click_link "Parceiros"
+    end
+    click_link company.name
+    page.select(user2.name, from: 'employee_user_id')
+    click_button "Adicionar"
+    expect(page).to have_content("Usuario salvo com sucesso!")
   end
 
 end

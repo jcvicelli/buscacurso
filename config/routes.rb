@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :courses do
     collection { get :search }
   end
-  resources :companies
+  resources :companies do
+    resources :employees
+  end
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 

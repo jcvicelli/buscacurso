@@ -18,7 +18,7 @@
 </p>
 
 <p>
-  <h2>Endereços:</h2>
+  <h3>Endereços:</h3>
 </p>
 
 <% @company.enderecos.each do |endereco| %>
@@ -38,10 +38,35 @@
 
 <% end %>
 
-<%= link_to 'Voltar', companies_path, class: 'btn btn-default btn-sm' %>
-
 <% if @company.user_id == current_user.id || current_user.admin? %>
   <br><br>
+  <p>
+    <hr>
+    <h3>Usuarios Autorizados:</h3>
+  </p>
+  <% if @company.employees %>
+    <% @company.employees.each do |employee| %>
+      <p>
+        <%= employee.user.name %>
+        <%= link_to '', company_employee_path(@company, employee),
+                        class: 'glyphicon glyphicon-remove',
+                        method: :delete, data: { confirm: "Tem certeza?" } %>
+      </p>
+    <% end %>
+  <% end %>
+
+  <%= simple_form_for [@company, @company.employees.new] do |f| %>
+    <div class="form-group form-employee">
+      <%= f.association :user, class: 'form-control'%>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Adicionar", class: 'btn btn-primary'  %>
+    </div>
+  <% end %>
+
+  <br><br>
   <%= link_to 'Editar', edit_company_path(@company), class: 'btn btn-default btn-sm' %> |
-  <%= link_to 'Deletar', @company, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Tem certeza?' } %>
+  <%= link_to 'Deletar', @company, class: 'btn btn-danger btn-sm',
+                      method: :delete, data: { confirm: 'Tem certeza?' } %> |
 <% end %>
+<%= link_to 'Voltar', companies_path, class: 'btn btn-default btn-sm' %>

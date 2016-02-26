@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     models:
-      user: Usuario
+      user: Usuário
       company: Parceiro
       course: Curso
       category_type: Categoria
@@ -9,6 +9,7 @@ pt-BR:
       area: Area
       certificate: Certificado
       mode: Modo
+      employee: Usuário
     attributes:
       user:
         login: "Login"
@@ -58,3 +59,6 @@ pt-BR:
         name: "Nome"
       mode:
         name: "Nome"
+      employee:
+        user: "Usuário"
+        company: "Parceiro"
