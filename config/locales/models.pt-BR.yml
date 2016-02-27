@@ -18,6 +18,7 @@ pt-BR:
         password_confirmation: "Confirmar Senha"
         current_password: "Senha Atual"
         company: "Parceiro"
+        remember_me: "Lembre-me"
       company:
         cnpj: "CNPJ"
         phone: "Fone"

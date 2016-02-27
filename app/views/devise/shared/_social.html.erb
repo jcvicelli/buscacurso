@@ -1,0 +1,14 @@
+<div class="btn-group-horizontal">
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <div class="form-group">
+      <%= link_to raw('<i class="fa fa-facebook fa-2x pull-left"></i> Login com Facebook'),
+              omniauth_authorize_path(resource_name, provider),
+              class: 'btn btn-facebook form-control' %>
+    </div>
+    <div class="form-group">
+      <%= link_to raw('<i class="fa fa-google fa-2x pull-left"></i> Login com Google'),
+              omniauth_authorize_path(resource_name, provider),
+              class: 'btn btn-google-plus form-control' %>
+    </div>
+  <% end -%>
+</div>

@@ -24,3 +24,17 @@
  .alert-notice {
    @extend .alert-info;
  }
+
+@font-face {
+  font-family: 'Panton';
+  src: font-url('Panton-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Panton-Bold';
+  src: font-url('Panton-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}

@@ -4,6 +4,16 @@
     height: 50%;
 }
 
+* {
+ font-size: 100%;
+ font-family: "Panton";
+ letter-spacing: 1px;
+}
+
+a.hover, .btn-link:active, .btn-link:focus, .btn-link:hover {
+  font-weight: bold;
+}
+
 .center h1 {
 	margin-bottom:10px;
 }
@@ -132,7 +142,55 @@ div.pagination ul {
 body {
   padding-top: 50px;
 }
-.alert{
-  position: absolute;
-  z-index: +5;
+.alert, .alert.alert-notice, .alert.alert-alert {
+  margin-bottom: 0px;
+}
+
+.panel-heading{
+  text-align: center;
+  font-weight: bold;
+}
+
+.log-in.panel {
+  align-content: center;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  border: none;
+}
+
+.btn.btn-facebook.form-control {
+  font-weight: bold;
+  color: white;
+  background-color: DodgerBlue;
+  &:hover {
+    color: white;
+    background-color: RoyalBlue;
+  }
+}
+
+
+.btn.btn-google-plus.form-control{
+  font-weight: bold;
+  background-color: #DD4B39;
+  color: white;
+  &:hover {
+    color: white;
+    background-color: #b03123;
+  }
+
+}
+
+.login-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image_url("login-bg.jpg");
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.navbar {
+  margin-bottom: 0px;
 }
