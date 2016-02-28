@@ -1,13 +1,12 @@
 <%= simple_form_for(@company) do |f| %>
-  <%= render "companies/shared/error_messages" %>
+  <%= f.error_notification %>
+
 
   <div class="form-group">
-    <%= f.label :cnpj %><br>
-    <%= f.text_field :cnpj , class: 'form-control'%>
+    <%= f.input :cnpj , class: 'form-control'%>
   </div>
   <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.input :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -48,6 +47,6 @@
   </div>
 
   <br>
-  <%= f.submit "Salvar", class: 'btn btn-primary' %>
+  <%= f.submit "Salvar", class: 'btn btn-primary form-control' %>
 
 <% end %>

@@ -1,5 +1,14 @@
-<h1>Nova Empresa</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
-<br>
-<%= link_to 'Voltar', companies_path, class: 'btn btn-default btn-sm' %>
+  <div class="panel-heading">
+    <h2> Novo Parceiro </h2>
+  </div>
+  <div class="panel-body">
+
+    <%= render 'form' %>
+    <br>
+    <%= link_to 'Voltar', companies_path, class: 'btn btn-link btn-sm' %>
+
+  </div>
+
+<%= render "shared/formbg_footer" %>

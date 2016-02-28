@@ -1,6 +1,15 @@
-<h1>Editar Empresa</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
-<br>
-<%= link_to 'Exibir', @company, class: 'btn btn-default btn-sm' %>
-<%= link_to 'Voltar', companies_path, class: 'btn btn-default btn-sm' %>
+  <div class="panel-heading">
+    <h2> Editar Parceiro </h2>
+  </div>
+  <div class="panel-body">
+
+    <%= render 'form' %>
+    <br>
+    <%= link_to 'Exibir', @company, class: 'btn btn-link btn-sm' %>
+    <%= link_to 'Voltar', companies_path, class: 'btn btn-link btn-sm' %>
+
+  </div>
+
+<%= render "shared/formbg_footer" %>

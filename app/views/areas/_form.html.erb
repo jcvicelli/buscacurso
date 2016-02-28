@@ -1,9 +1,9 @@
 <%= simple_form_for(@area) do |f| %>
-
+  <%= f.error_notification %>
   <div class="form-group">
     <%= f.input :name , class: 'form-control' %>
   </div>
 
   <br>
-  <%= f.submit "Salvar", class: 'btn btn-primary' %>
+  <%= f.submit "Salvar", class: 'btn btn-primary form-control' %>
 <% end %>

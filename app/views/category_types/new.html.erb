@@ -1,5 +1,13 @@
-<h1>Nova Categoria</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
+  <div class="panel-heading">
+    <h2> Nova Categoria </h2>
+  </div>
+  <div class="panel-body">
+    <%= render 'form' %>
 
-<%= link_to 'Voltar', category_types_path, class: 'btn btn-default btn-sm' %>
+    <br>
+    <%= link_to 'Voltar', category_types_path, class: 'btn btn-link btn-sm' %>
+  </div>
+
+<%= render "shared/formbg_footer" %>

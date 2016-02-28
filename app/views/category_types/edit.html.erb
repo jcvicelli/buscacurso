@@ -1,7 +1,15 @@
-<h1>Editar Categoria</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
+  <div class="panel-heading">
+    <h2> Editar Categoria </h2>
+  </div>
+  <div class="panel-body">
 
-<br>
-<%= link_to 'Exibir', @category_type, class: 'btn btn-default btn-sm' %>
-<%= link_to 'Voltar', category_types_path, class: 'btn btn-default btn-sm' %>
+    <%= render 'form' %>
+
+    <br>
+    <%= link_to 'Exibir', @category_type, class: 'btn btn-link btn-sm' %>
+    <%= link_to 'Voltar', category_types_path, class: 'btn btn-link btn-sm' %>
+  </div>
+
+<%= render "shared/formbg_footer" %>

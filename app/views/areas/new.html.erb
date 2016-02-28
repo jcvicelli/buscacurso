@@ -1,5 +1,14 @@
-<h1>Nova Area</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
+  <div class="panel-heading">
+    <h2> Nova Area </h2>
+  </div>
+  <div class="panel-body">
 
-<%= link_to 'Voltar', areas_path, class: 'btn btn-default btn-sm' %>
+    <%= render 'form' %>
+
+    <br>
+    <%= link_to 'Voltar', areas_path, class: 'btn btn-link btn-sm' %>
+  </div>
+
+<%= render "shared/formbg_footer" %>

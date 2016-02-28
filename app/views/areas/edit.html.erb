@@ -1,7 +1,16 @@
-<h1>Editar Area</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
+  <div class="panel-heading">
+    <h2> Editar Area </h2>
+  </div>
+  <div class="panel-body">
 
-<br>
-<%= link_to 'Exibir', @area, class: 'btn btn-default btn-sm' %> |
-<%= link_to 'Voltar', areas_path, class: 'btn btn-default btn-sm' %>
+    <%= render 'form' %>
+
+    <br>
+    <%= link_to 'Exibir', @area, class: 'btn btn-link btn-sm' %> |
+    <%= link_to 'Voltar', areas_path, class: 'btn btn-link btn-sm' %>
+
+  </div>
+
+<%= render "shared/formbg_footer" %>

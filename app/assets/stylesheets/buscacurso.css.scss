@@ -151,6 +151,15 @@ body {
   font-weight: bold;
 }
 
+.form-panel.panel {
+  align-content: center;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
 .log-in.panel {
   align-content: center;
   border-radius: 8px;
@@ -190,6 +199,16 @@ body {
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.form-bg {
+  padding-top: 4em;
+  height: 100%;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #ddd;
 }
 .navbar {
   margin-bottom: 0px;

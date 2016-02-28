@@ -1,10 +1,10 @@
 <%= simple_form_for(@category_type) do |f| %>
-
+  <%= f.error_notification %>
   <div class="form-group">
     <%= f.association :category %>
     <%= f.input :name %>
   </div>
 
   <br>
-  <%= f.submit "Salvar", class: 'btn btn-primary' %>
+  <%= f.submit "Salvar", class: 'btn btn-primary form-control' %>
 <% end %>

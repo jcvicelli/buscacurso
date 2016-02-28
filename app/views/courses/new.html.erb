@@ -1,5 +1,12 @@
-<h1>Novo Curso</h1>
+<%= render "shared/formbg_header" %>
 
-<%= render 'form' %>
-<br>
-<%= link_to 'Voltar', courses_path, class: 'btn btn-default btn-sm'  %>
+  <div class="panel-heading">
+    <h2> Novo Curso | Evento </h2>
+  </div>
+  <div class="panel-body">
+    <%= render 'form' %>
+    <br>
+    <%= link_to 'Voltar', courses_path, class: 'btn btn-link btn-sm'  %>
+  </div>
+
+<%= render "shared/formbg_footer" %>
