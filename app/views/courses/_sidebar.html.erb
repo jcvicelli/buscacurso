@@ -1,0 +1,19 @@
+<div class="sidebar">
+  <div class="item-group">
+    <div class="header">
+      <h3>Ministrante</h3>
+    </div>
+    <div class="body">
+      <ul class="list-group">
+        <%- @courses.aggs['lecturer_name']['buckets'].each do |aggs| %>
+          <li class="list-group-item">
+            <%= link_to_lecturer(aggs) do %>
+              <%= aggs['key']  %>
+              <span class="badge"> <%= aggs['doc_count']  %> </span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

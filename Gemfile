@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'elasticsearch'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'searchkick'
 gem 'money-rails'
 
 group :development, :test do

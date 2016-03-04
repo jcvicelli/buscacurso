@@ -7,12 +7,13 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.page(params[:page])
+    #@courses = Course.page(params[:page])
+    @courses = Course.search params[:q].presence || '*', options
   end
 
   # GET /articles/search
   def search
-    @courses = Course.search(params[:q]).page(params[:page]).records
+    @courses = Course.search params[:q].presence || '*', options
 
     render action: "index"
   end
@@ -93,6 +94,24 @@ class CoursesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])
+    end
+
+    def options
+      {
+        page: params[:page],
+        per_page: 10,
+         operator: "or",
+        aggs: [:title, :lecturer_name],
+        fields: ['title^10', 'description^5'],
+        order: {
+          _score: :desc,
+          updated_at: :desc
+        },
+        where: where_params
+      }
+    end
+    def where_params
+      params.permit(:lecturer_name)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
