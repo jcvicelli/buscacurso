@@ -1,64 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1><%= controller.action_name == 'search' ? 'Buscar Cursos' : 'Todos os Cursos' %></h1>
 
-<hr>
 
-<%= form_tag search_courses_path, method: 'get' do %>
-  <div class="input-group">
-  <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Buscar...' %>
+  <p id="notice"><%= notice %></p>
 
-  <span class="input-group-btn">
-    <button type="button" class="btn btn-default">
-      <span class="glyphicon glyphicon-search"></span>
-    </button>
-  </span>
+  <h1><%= controller.action_name == 'search' ? 'Buscar Cursos' : 'Todos os Cursos' %></h1>
+
+  <hr>
+
+  <%= form_tag search_courses_path, method: 'get' do %>
+    <div class="input-group">
+    <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Buscar...' %>
+
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+    </span>
+    </div>
+
+  <% end %>
+
+  <%= render 'sidebar' %>
+
+  <hr>
+  <div class="col-md-9">
+
+    <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome do curso/evento</th>
+          <th>Conteúdo programático</th>
+          <th>Sobre</th>
+          <th>Empresa</th>
+          <th>Início</th>
+          <th>Fim</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @courses.__send__ controller.action_name == 'search' ? :each_with_hit : :each do |course, hit| %>
+          <tr>
+            <td><%= link_to hit.try(:highlight).try(:title)   ? hit.highlight.title.join.html_safe : course.title, course %></td>
+            <td><%= hit.try(:highlight).try(:description) ? hit.highlight.description.join.html_safe : course.description %></td>
+            <td><%= hit.try(:highlight).try(:about) ? hit.highlight.about.join('&hellip;').html_safe : course.about %></td>
+            <td>
+              <% if course.company %>
+                <%= course.company.name %>
+              <% end %>
+            </td>
+            <td><%= course.begins_at %></td>
+            <td><%= course.ends_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <br>
+
+  <div class="text-center">
+    <%= paginate @courses %>
   </div>
 
-<% end %>
+  <hr>
 
-<%= render 'sidebar' %>
+  <%= link_to 'Novo Curso', new_course_path, class: 'btn btn-default btn-sm' %>
+  <%= link_to 'Todos os Cursos', courses_path, class: 'btn btn-default btn-sm' %>
 
-<hr>
-
-<div class="table-responsive">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome do curso/evento</th>
-      <th>Conteúdo programático</th>
-      <th>Sobre</th>
-      <th>Empresa</th>
-      <th>Início</th>
-      <th>Fim</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @courses.__send__ controller.action_name == 'search' ? :each_with_hit : :each do |course, hit| %>
-      <tr>
-        <td><%= link_to hit.try(:highlight).try(:title)   ? hit.highlight.title.join.html_safe : course.title, course %></td>
-        <td><%= hit.try(:highlight).try(:description) ? hit.highlight.description.join.html_safe : course.description %></td>
-        <td><%= hit.try(:highlight).try(:about) ? hit.highlight.about.join('&hellip;').html_safe : course.about %></td>
-        <td>
-          <% if course.company %>
-            <%= course.company.name %>
-          <% end %>
-        </td>
-        <td><%= course.begins_at %></td>
-        <td><%= course.ends_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 </div>
-<br>
-
-<div class="text-center">
-  <%= paginate @courses %>
-</div>
-
-<hr>
-
-<%= link_to 'Novo Curso', new_course_path, class: 'btn btn-default btn-sm' %>
-<%= link_to 'Todos os Cursos', courses_path, class: 'btn btn-default btn-sm' %>

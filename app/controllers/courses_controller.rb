@@ -101,8 +101,8 @@ class CoursesController < ApplicationController
         page: params[:page],
         per_page: 10,
          operator: "or",
-        aggs: [:title, :lecturer_name],
-        fields: ['title^10', 'description^5'],
+        aggs: [:company_name, :lecturer_name, :category_name],
+        fields: ['title^10', 'description^5', 'about'],
         order: {
           _score: :desc,
           updated_at: :desc
@@ -111,7 +111,7 @@ class CoursesController < ApplicationController
       }
     end
     def where_params
-      params.permit(:lecturer_name)
+      params.permit(:lecturer_name, :company_name, :category_name)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
