@@ -4,6 +4,7 @@ FactoryGirl.define do
     name { FFaker::Company.name }
     phone { FFaker::PhoneNumber.phone_number }
     contact { FFaker::NameBR.name }
+    email { FFaker::Internet.email }
   end
 
 end

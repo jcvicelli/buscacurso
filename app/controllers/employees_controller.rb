@@ -6,10 +6,9 @@ class EmployeesController < ApplicationController
     #@employee.user_id = current_user.id
 
     if @employee.save
-      flash[:success] = "Usuario salvo com sucesso!"
       redirect_to :back
     else
-      flash[:alert] = "Problemas ao adicionar o usuario"
+      flash[:alert] = "Problemas ao adicionar o usuario. Email invalido"
       redirect_to :back
     end
   end
@@ -18,14 +17,14 @@ class EmployeesController < ApplicationController
     @employee = @company.employees.find(params[:id])
 
     @employee.destroy
-    flash[:success] = "Usuario deletado."
+    #flash[:success] = "Usuario deletado."
     redirect_to :back
   end
 
   private
 
   def employee_params
-    params.require(:employee).permit(:user_id)
+    params.require(:employee).permit(:email)
   end
 
   def set_company

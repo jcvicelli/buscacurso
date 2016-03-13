@@ -86,11 +86,23 @@ class CoursesController < ApplicationController
 
   private
     def owned_course
-      unless current_user.id == @course.user_id || current_user.admin?
+      unless current_user.id == @course.user_id || current_user.admin? || get_employees
         flash[:alert] = "Somente usuários cadastrados no parceiro podem editar os eventos"
         redirect_to root_path
       end
     end
+
+    def get_employees
+      emp = []
+      @course.company.employees.each do |e|
+        user = User.find_by(email: e.email)
+        if user
+          emp.push(user.id)
+        end
+      end
+      emp.include? current_user.id
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])

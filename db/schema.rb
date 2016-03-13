@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226223047) do
+ActiveRecord::Schema.define(version: 20160313140052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,14 +139,13 @@ ActiveRecord::Schema.define(version: 20160226223047) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "employees", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
   end
 
   add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
-  add_index "employees", ["user_id"], name: "index_employees_on_user_id", using: :btree
 
   create_table "enderecos", force: :cascade do |t|
     t.string   "cep"
@@ -219,7 +218,6 @@ ActiveRecord::Schema.define(version: 20160226223047) do
   add_foreign_key "courses", "modes"
   add_foreign_key "courses", "users"
   add_foreign_key "employees", "companies"
-  add_foreign_key "employees", "users"
   add_foreign_key "enderecos", "companies"
   add_foreign_key "enderecos", "courses"
   add_foreign_key "enderecos", "users"

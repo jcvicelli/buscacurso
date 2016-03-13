@@ -18,6 +18,7 @@ feature "adding company" do
     fill_in "company[name]", with: company.name
     fill_in "company[phone]", with: company.phone
     fill_in "company[contact]", with: company.contact
+    fill_in "company[email]", with: company.email
   end
 
   def fill_in_endereco_fields

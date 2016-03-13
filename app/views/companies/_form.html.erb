@@ -10,27 +10,23 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone, class: 'form-control'%>
+    <%= f.input :phone, class: 'form-control'%>
   </div>
   <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, class: 'form-control' %>
+    <%= f.input :email, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.association :user, class: 'form-control'%>
+    <%= f.association :user, class: 'form-control', :disabled => true %>
   </div>
   <div class="form-group">
     <%= f.association :category_types , label_method: :select_label, class: 'form-control' %>
     <small class="text-muted">Use o <kbd>CTRL</kbd> para selecionar mais de uma área.</small>
   </div>
   <div class="form-group">
-    <%= f.label :site %><br>
-    <%= f.text_field :site, class: 'form-control' %>
+    <%= f.input :site, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact, class: 'form-control'%>
+    <%= f.input :contact, class: 'form-control'%>
   </div>
   <div class="form-group">
     <%= f.input :marketing, class: 'form-control'%>
