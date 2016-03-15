@@ -1,14 +1,17 @@
 require 'rails_helper'
 
-feature "signing in devise" do
+feature "adding courses" do
 
   given!(:user) { user = FactoryGirl.create(:user)}
-  given(:course) { user = FactoryGirl.build(:course)}
-  given!(:company) { user = FactoryGirl.create(:company)}
+  given(:course) { course = FactoryGirl.build(:course) }
+  given!(:company) { company = FactoryGirl.create(:company)}
 
   background do
+    course.reindex
+    Course.searchkick_index.refresh
     sign_in_with user
     visit '/'
+
   end
 
   def fill_in_course_fields
@@ -20,7 +23,7 @@ feature "signing in devise" do
   scenario "visiting site to add course" do
     visit '/'
     within(".dropdown") do
-        click_link "Cursos"
+        click_link "Cursos | Eventos"
     end
     click_link "Novo Curso"
     fill_in_course_fields
@@ -31,7 +34,7 @@ feature "signing in devise" do
   scenario "visiting site to add course shouldnt be empty" do
     visit '/'
     within(".dropdown") do
-        click_link "Cursos"
+        click_link "Cursos | Eventos"
     end
     click_link "Novo Curso"
     click_button "Salvar"

@@ -83,14 +83,12 @@ feature "adding company" do
     within(".dropdown") do
         click_link "Parceiros"
     end
-    user2.company_id = Company.find_by(name: company.name).id
-    user2.save
 
     click_link company.name
 
-    page.select(user2.name, from: 'employee_user_id')
+    fill_in "employee[email]", with: user2.email
     click_button "Adicionar"
-    expect(page).to have_content("Usuario salvo com sucesso!")
+    expect(page).to have_content(user2.email)
   end
 
 end

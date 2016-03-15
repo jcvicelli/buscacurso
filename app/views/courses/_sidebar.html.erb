@@ -2,7 +2,43 @@
 
   <div class="item-group">
     <div class="header">
-      <h3>Ministrante</h3>
+      <h4>Tipo</h4>
+    </div>
+    <div class="body">
+      <ul class="list-group">
+        <%- @courses.aggs['category_name']['buckets'].each do |aggs| %>
+          <li class="list-group-item">
+            <%= link_to_category(aggs) do %>
+              <%= aggs['key']  %>
+              <span class="badge"> <%= aggs['doc_count']  %> </span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="item-group">
+    <div class="header">
+      <h4>Área</h4>
+    </div>
+    <div class="body">
+      <ul class="list-group">
+        <%- @courses.aggs['area_name']['buckets'].each do |aggs| %>
+          <li class="list-group-item">
+            <%= link_to_area(aggs) do %>
+              <%= aggs['key']  %>
+              <span class="badge"> <%= aggs['doc_count']  %> </span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="item-group">
+    <div class="header">
+      <h4>Ministrante</h4>
     </div>
     <div class="body">
       <ul class="list-group">
@@ -20,7 +56,7 @@
 
   <div class="item-group">
     <div class="header">
-      <h3>Parceiro</h3>
+      <h4>Parceiro</h4>
     </div>
     <div class="body">
       <ul class="list-group">
@@ -38,13 +74,31 @@
 
   <div class="item-group">
     <div class="header">
-      <h3>Categoria</h3>
+      <h4>Modo</h4>
     </div>
     <div class="body">
       <ul class="list-group">
-        <%- @courses.aggs['category_name']['buckets'].each do |aggs| %>
+        <%- @courses.aggs['mode_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
-            <%= link_to_category(aggs) do %>
+            <%= link_to_mode(aggs) do %>
+              <%= aggs['key']  %>
+              <span class="badge"> <%= aggs['doc_count']  %> </span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="item-group">
+    <div class="header">
+      <h4>Certificado</h4>
+    </div>
+    <div class="body">
+      <ul class="list-group">
+        <%- @courses.aggs['certificate_name']['buckets'].each do |aggs| %>
+          <li class="list-group-item">
+            <%= link_to_certificate(aggs) do %>
               <%= aggs['key']  %>
               <span class="badge"> <%= aggs['doc_count']  %> </span>
             <% end %>

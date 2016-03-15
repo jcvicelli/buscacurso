@@ -21,7 +21,10 @@ class Course < ActiveRecord::Base
   def search_data
     attributes.merge(
       company_name: company.name,
-      category_name: category_type.name
+      category_name: category_type.name,
+      area_name: areas.map(&:name),
+      mode_name: mode.try(:name),
+      certificate_name: certificate.try(:name)
     )
   end
 

@@ -31,8 +31,7 @@
     <%= f.association :mode, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.association :areas, class: 'form-control' %>
-    <small class="text-muted">Use o <kbd>CTRL</kbd> para selecionar mais de uma área.</small>
+    <%= f.association :areas, as: :check_boxes, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.association :certificate, class: 'form-control' %>
