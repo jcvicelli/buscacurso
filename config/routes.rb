@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :areas
   resources :category_types
   resources :courses do
-    collection { get :search }
+    collection do
+     get :search
+     get :autocomplete
+    end
   end
   resources :companies do
     resources :employees

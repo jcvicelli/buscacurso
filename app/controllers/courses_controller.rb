@@ -8,14 +8,18 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     #@courses = Course.page(params[:page])
-    @courses = Course.search params[:q].presence || '*', options
+    @courses = Course.search params[:query].presence || '*', options
   end
 
   # GET /articles/search
   def search
-    @courses = Course.search params[:q].presence || '*', options
+    @courses = Course.search params[:query].presence || '*', options
 
     render action: "index"
+  end
+
+  def autocomplete
+    render json: Course.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   # GET /courses/1
@@ -125,7 +129,7 @@ class CoursesController < ApplicationController
     end
     def where_params
       params.permit(:lecturer_name, :company_name, :category_name, :area_name,
-                    :mode_name, :certificate_name )              
+                    :mode_name, :certificate_name )
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

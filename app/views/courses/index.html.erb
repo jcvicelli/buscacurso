@@ -10,15 +10,12 @@
 
   <%= form_tag search_courses_path, method: 'get' do %>
     <div class="input-group">
-    <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Buscar...' %>
+      <%= text_field_tag :query, params[:query], class: 'form-control', id: "course_search", autocomplete: "off" %>
+      <div class="input-group-btn">
+        <%= submit_tag "Buscar", class: "btn btn-default" %>
+      </div>
 
-    <span class="input-group-btn">
-      <button type="button" class="btn btn-default">
-        <span class="glyphicon glyphicon-search"></span>
-      </button>
-    </span>
     </div>
-
   <% end %>
 
   <%= render 'sidebar' %>

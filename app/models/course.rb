@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  searchkick language: "brazilian"
+  searchkick language: "brazilian", autocomplete: ['title']
 
   belongs_to :company
   belongs_to :mode

@@ -7,6 +7,7 @@ $( document).on( "ready", function(){
     $("#course_price").prop('readonly', false);  // unchecked
     $("#course_payment_method").prop('readonly', false);
   }
+
 });
 
 $( document).on( "change", "#course_free", function(){
