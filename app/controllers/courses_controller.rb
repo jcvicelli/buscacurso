@@ -119,7 +119,7 @@ class CoursesController < ApplicationController
          operator: "or",
         aggs: [:company_name, :lecturer_name, :category_name, :area_name,
               :mode_name, :certificate_name],
-        fields: ['title^10', 'description^5', 'about'],
+        fields: ['title^10', 'description^5', 'about', 'lecturer_name', 'company_name'],
         order: {
           _score: :desc,
           updated_at: :desc
@@ -137,7 +137,7 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:title, :description, :about, :place, :company_id, :rating, :begins_at, :ends_at,
             :total_hours, :mode_id, :certificate_id, :investment, :payment_method, :requirements,
             :content, :keywords, :lecturer_name, :lecturer_resume, :link_inscription, :category_type_id,
-            :free, :price, :user_id, :area_ids => [], enderecos_attributes: [:id,:cep, :cidade, :estado,
+            :free, :price, :user_id, :area_ids => [], enderecos_attributes: [:id, :nome, :cep, :cidade, :estado,
               :bairro, :logradouro, :numero, :_destroy])
     end
 end

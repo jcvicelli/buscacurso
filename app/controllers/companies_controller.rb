@@ -97,7 +97,7 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(:cnpj, :name, :phone, :contact, :email, :site,
                             :user_id, :marketing,  :category_type_ids => [],
-                            enderecos_attributes: [:id,:cep, :cidade, :estado,
+                            enderecos_attributes: [:id, :nome, :cep, :cidade, :estado,
                             :bairro, :logradouro, :numero, :_destroy])
     end
 end
