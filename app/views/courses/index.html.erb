@@ -23,8 +23,8 @@
   <hr>
   <div class="col-md-9">
 
-    <div class="table-responsive">
-    <table class="table">
+    <div class="table table-responsive">
+    <table class="table table-responsive">
       <thead>
         <tr>
           <th>Nome do curso/evento</th>
@@ -40,8 +40,8 @@
         <% @courses.__send__ controller.action_name == 'search' ? :each_with_hit : :each do |course, hit| %>
           <tr>
             <td><%= link_to hit.try(:highlight).try(:title)   ? hit.highlight.title.join.html_safe : course.title, course %></td>
-            <td><%= hit.try(:highlight).try(:description) ? hit.highlight.description.join.html_safe : course.description %></td>
-            <td><%= hit.try(:highlight).try(:about) ? hit.highlight.about.join('&hellip;').html_safe : course.about %></td>
+            <td><%= hit.try(:highlight).try(:description) ? hit.highlight.description.join.html_safe : course.description[0,100] %></td>
+            <td><%= hit.try(:highlight).try(:about) ? hit.highlight.about.join('&hellip;').html_safe : course.about[0,100] %></td>
             <td>
               <% if course.company %>
                 <%= course.company.name %>
