@@ -1,0 +1,168 @@
+  <!-- cursos -->
+  <br>
+  <div class="container">
+    <div class="row row-search">
+      <%= form_tag search_courses_path,  class: 'form', method: 'get' do %>
+        <div class="col-md-10">
+          <div class="form-group">
+            <%= text_field_tag :q, params[:q], class: 'input-lg form-control', placeholder: 'Buscar...' %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag "Buscar", class: "btn btn-lg btn-block btn-search-home from-control" %>
+        </div>
+      <% end %>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="home-titles">Confira os destaques da semana</P>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="thumbnail thumb-big">
+          <a href="https://www.udemy.com/criar-ebook/">
+            <%= image_tag("courses/adv-big-ebook.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-big">Aprenda como criar um eBook</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="home-titles">Outros destaques</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="thumbnail thumb-med">
+          <a href="http://www.veduca.com.br/cursos/gratuitos/energias-renovaveis">
+            <%= image_tag("courses/03_adv-medium.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-medium">Programa para geração e uso de energias limpas na América Latina</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail thumb-med">
+          <a href="http://www.veduca.com.br/cursos/gratuitos/google-adwords">
+            <%= image_tag("courses/02_adv-medium.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-medium">Aprenda a utilizar o Google AdWords</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail thumb-med">
+          <a href="http://www3.veduca.com.br/cursos/extensao/ensino-hibrido-personalizacao-e-tecnologia-na-educacao">
+            <%= image_tag("courses/04_adv-medium.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-medium">Ensino híbrido: personalização e tecnologia na educação</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail thumb-med">
+          <a href="https://www.edx.org/course/implementing-customer-insights-business-delftx-idemc-1x">
+            <%= image_tag("courses/05_adv-medium.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-medium">Implementing Customer Insights for Your Business</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail thumb-med">
+          <a href="http://www.veduca.com.br/cursos/gratuitos/financas-pessoais-e-investimento-em-acoes">
+            <%= image_tag("courses/06_adv-medium.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-medium">Finanças pessoais e Investimentos em Ações  BMF & BOVESPA</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail thumb-med">
+          <a href="https://www.udemy.com/brackets-edge-code/">
+            <%= image_tag("courses/01_adv-medium.jpg", alt: "thumbnail", class: "img-responsive") %>
+            <div class="caption">
+              <p class="adv-medium">Brackets & Edge Code  Fundamentos</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-primary-highlights">TODOS OS EVENTOS</button>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="home-titles">Divulgue sua empresa e promova seus eventos</P>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="col-sm-3">
+        <div class="thumbnail thumb-small">
+          <%= image_tag("courses/adv-01.jpg", alt: "adv", class: "img-responsive") %>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail thumb-small">
+          <%= image_tag("courses/adv-02.jpg", alt: "adv", class: "img-responsive") %>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail thumb-small">
+          <%= image_tag("courses/adv-03.jpg", alt: "adv", class: "img-responsive") %>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail thumb-small">
+          <%= image_tag("courses/adv-04.jpg", alt: "adv", class: "img-responsive") %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-primary-highlights">TODOS OS PARCEIROS</button>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+
+      <br>
+      <br>
+
+    </div>
+  </div>

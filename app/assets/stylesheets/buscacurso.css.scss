@@ -213,3 +213,100 @@ body {
 .navbar {
   margin-bottom: 0px;
 }
+
+.btn-group-horizontal {
+  align-content: flex-end;
+}
+
+.blockquote-seekat {
+  font-size: 14px;
+}
+
+.partners {
+  background-color:#E0E1E2;
+  padding:30px;
+}
+
+.btn-primary-highlights  {
+  background-color: #E3C500;
+  color: #2B2B2B;
+  height: 50px;
+  width: 360px;
+  pointer-events: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.thumbnail {
+  height: 500px;
+  font-size:18px;
+  font-style: bold;
+  line-height:25px;
+  text-align:center;
+  padding:10px;
+}
+
+.thumbnail .img-responsive {
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.thumbnail.thumb-big {
+  text-align: left;
+  height: 780px;
+  padding-top: 10px;
+}
+
+.thumbnail.thumb-med {
+  text-align: left;
+  height: 350px;
+}
+
+.thumbnail.thumb-small {
+  text-align: left;
+  height: 180px;
+}
+
+p.adv-big {
+  font-size: 30px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  color:#58595B;
+  padding: 16px;
+}
+
+p.adv-medium {
+  font-size: 20px;
+  text-align: center;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  padding: 20px;
+  color:#58595B;
+}
+
+p.home-titles {
+  font-size: 40px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+  color:#234056;
+  padding: 16px;
+  margin-top: 75px;
+}
+
+.row-search {
+  margin-top: 70px;
+}
+
+.btn-search-home {
+  background-color: #E3C500;
+  color: #2B2B2B;
+  pointer-events: center;
+  font-size: 18px;
+  font-weight: bold;
+}
