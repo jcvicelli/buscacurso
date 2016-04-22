@@ -4,8 +4,7 @@
 }
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
-  margin: 0;
-  width: 100%;
+
   color: #555555;
   vertical-align: middle;
   background-color: #ffffff;
@@ -59,11 +58,7 @@
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
 }
-.twitter-typeahead .tt-hint {
-  color: #a1a1a1;
-  z-index: 1;
-  border: 1px solid transparent;
-}
+
 .input-group .twitter-typeahead .tt-query {
   z-index: 2;
 }

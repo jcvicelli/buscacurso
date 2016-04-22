@@ -5,7 +5,7 @@
       <%= form_tag search_courses_path,  class: 'form', method: 'get' do %>
         <div class="col-md-10">
           <div class="form-group">
-            <%= text_field_tag :q, params[:q], class: 'input-lg form-control', placeholder: 'Buscar...' %>
+            <%= text_field_tag :q, params[:q], class: 'input-lg form-control', placeholder: 'Buscar...', id: "course_search", autocomplete: "off" %>
           </div>
         </div>
         <div class="col-md-2">
