@@ -31,7 +31,7 @@
     <div class="space60"></div>
     <div class="row">
       <div class="col-sm-4">
-        <div class="panel panel-default panel-info-courses">
+        <div class="panel panel-info-courses">
           <div class="panel-heading"></div>
           <div class="panel-body">
             <p invest>
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="panel panel-default panel-info-courses">
+        <div class="panel panel-info-courses">
           <div class="panel-heading"></div>
           <div class="panel-body">
             <p><strong>Modo:</strong>
@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="panel panel-default panel-info-courses">
+        <div class="panel panel-info-courses">
           <div class="panel-heading"></div>
           <div class="panel-body">
             <p><strong> Data:</strong> <%= @course.begins_at.strftime("%d-%B-%Y") %></p>
@@ -67,8 +67,8 @@
           </div>
         </div>
 
-        <div class="panel panel-default panel-info-courses">
-          <div class="panel-heading .panel-default> panel-heading"></div>
+        <div class="panel panel-info-courses">
+          <div class="panel-heading"></div>
           <div class="panel-body">
             <p panel>Site</p>
             <p><span class="glyphicon glyphicon-cloud"></span>
@@ -86,5 +86,39 @@
   </div>
 </div>
 
+<div class="space60"></div>
 
-<br><br>
+<div class="container">
+  <div class="divider-small"> </div>
+  <div class="row">
+    <div class="col-sm-6 share-social-medias">
+      <div class="space10"> </div>
+      <!-- Facebook -->
+      <%= link_to raw('<i class="fa fa-facebook pull-left"></i> Facebook'),
+              "https://www.facebook.com/sharer/sharer.php?u=" +
+              "http://#{request.host+request.fullpath}",
+              class: 'btn btn-facebook' %>
+
+      <!-- Google+ -->
+      <%= link_to raw('<i class="fa fa-google pull-left"></i> Google+'),
+              "https://plus.google.com/share?url=" +
+              "http://#{request.host+request.fullpath}",
+              class: 'btn btn-googleplus' %>
+
+      <!-- Twitter -->
+      <%= link_to raw('<i class="fa fa-twitter pull-left"></i> Twitter'),
+              "http://twitter.com/home?status=" +
+              "http://#{request.host+request.fullpath}",
+              class: 'btn btn-twitter' %>
+
+      <!-- LinkedIn -->
+      <%= link_to raw('<i class="fa fa-linkedin pull-left"></i> Linkedin'),
+              "http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" +
+              "http://#{request.host+request.fullpath}",
+              class: 'btn btn-linkedin' %>
+
+    </div>
+  </div>
+</div>
+
+<div class="space60"></div>

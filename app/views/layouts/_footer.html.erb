@@ -36,10 +36,10 @@
         </div>
       </div>
     </div>
-    <div class="row fotter-links"> </div>
+    <div class="row footer-links"> </div>
       <div class="row">
         <div class="col-sm-2 col-sm-push-3">
-          <h6>SOBRE</h6>
+          <p class="about">SOBRE</p>
           <ul class="list-unstyled">
             <li><%= link_to "Quem somos",  about_path %></li>
             <li><%= link_to "Como funciona",  about_path %></li>
@@ -49,7 +49,7 @@
           </ul>
         </div>
         <div class="col-sm-2 col-sm-push-3">
-          <h6>PARCEIROS</h6>
+          <p class="about">PARCEIROS</p>
           <ul class="list-unstyled">
             <li><%= link_to "Empresas",  about_path %></li>
             <li><%= link_to "Instituições de ensino",  about_path %></li>
@@ -58,7 +58,7 @@
           </ul>
         </div>
         <div class="col-sm-2 col-sm-push-3">
-          <h6>CONTATO</h6>
+          <p class="about">CONTATO</p>
           <ul class="list-unstyled">
             <li><%= link_to "Contato", contact_path %></li>
             <li><%= link_to "Dúvidas frequentes", contact_path %></li>
@@ -66,10 +66,10 @@
           </ul>
         </div>
       </div>
-      <div class="row fotter-links">
+      <div class="row footer-links">
         <div class="row">
-          <div class="col-sm-12 rodape">
-            <p> Copyright © <%= Time.now.year %> SeekAT &nbsp;
+          <div class="col-sm-12 copyright">
+            <p class="copyright"> Copyright © <%= Time.now.year %> SeekAT &nbsp;
               Desenvolvido por <a href="https://github.com/jcvicelli/" target="_blank">Jean Carlo Vicelli</a>
               Design por <a href="https://github.com/lcampagnin/" target="_blank">Luciane Campagnin</a>
             </p>
