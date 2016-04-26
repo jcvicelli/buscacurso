@@ -1,10 +1,10 @@
-<div class="sidebar col-md-3">
+<div class="sidebar col-xs-3">
 
-  <div class="item-group">
-    <div class="header">
+  <div class="list-group">
+    <div class="list-group-item barside-top">
       <h4>Tipo</h4>
     </div>
-    <div class="body">
+    <div class="body-side-bar">
       <ul class="list-group">
         <%- @courses.aggs['category_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
@@ -18,11 +18,11 @@
     </div>
   </div>
 
-  <div class="item-group">
-    <div class="header">
+  <div class="list-group">
+    <div class="list-group-item barside-top">
       <h4>Área</h4>
     </div>
-    <div class="body">
+    <div class="body-side-bar">
       <ul class="list-group">
         <%- @courses.aggs['area_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
@@ -36,11 +36,11 @@
     </div>
   </div>
 
-  <div class="item-group">
-    <div class="header">
+  <div class="list-group">
+    <div class="list-group-item barside-top">
       <h4>Ministrante</h4>
     </div>
-    <div class="body">
+    <div class="body-side-bar">
       <ul class="list-group">
         <%- @courses.aggs['lecturer_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
@@ -55,10 +55,10 @@
   </div>
 
   <div class="item-group">
-    <div class="header">
+    <div class="list-group-item barside-top">
       <h4>Parceiro</h4>
     </div>
-    <div class="body">
+    <div class="body-side-bar">
       <ul class="list-group">
         <%- @courses.aggs['company_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
@@ -73,10 +73,10 @@
   </div>
 
   <div class="item-group">
-    <div class="header">
+    <div class="list-group-item barside-top">
       <h4>Modo</h4>
     </div>
-    <div class="body">
+    <div class="body-side-bar">
       <ul class="list-group">
         <%- @courses.aggs['mode_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
@@ -91,10 +91,10 @@
   </div>
 
   <div class="item-group">
-    <div class="header">
+    <div class="list-group-item barside-top">
       <h4>Certificado</h4>
     </div>
-    <div class="body">
+    <div class="body-side-bar">
       <ul class="list-group">
         <%- @courses.aggs['certificate_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">

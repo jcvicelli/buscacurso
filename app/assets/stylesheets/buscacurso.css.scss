@@ -47,7 +47,6 @@ a:hover {
 }
 
 a:visited {
-  color: #969595;
   text-decoration: none;
 }
 
@@ -61,8 +60,12 @@ a:visited {
   border-top: 1.5px solid #e3c500;
 }
 
-tr .thead-research {
-  border-top: 2px solid #e3c500;
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 3px solid #e3c500;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(227, 197, 0);
 }
 
 /*navbar logo seekat*/
@@ -348,9 +351,9 @@ align-button: right;
   background-color: #E3C500;
   color: #3E3D3D;
   pointer-events: center;
-  font-size: 16px;
-  font-weight: bold;;
-  border-width: 0px;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  border-width: 0px !important;
 }
 
 .btn-sm-bnt-research:hover {
@@ -361,16 +364,6 @@ align-button: right;
   font-weight: bold;
   border-width: 0px;
 }
-
- .btn-sm-bnt-research:visited {
-  background-color: #F7E07C;
-  color: #3E3D3D;
-  pointer-events: center;
-  font-size: 16px;
-  font-weight: bold;
-  border-width: 0px;
-}
-
 
 p {
   color:#58595B;
@@ -625,15 +618,15 @@ p .invest {
 }
 
 .badge {
-  background-color:#E3C500;
-  border-radius: 12px;
-  color:#3E3D3D;
-  margin-left: 7px;
+  background-color: #E3C500 !important;
+  border-radius: 12px !important;
+  color:#3E3D3D !important;
+  margin-left: 7px !important;
 }
 
 .barside-top {
-  background-color:#E3C500;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border: 0px;
+  background-color: #E3C500 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  border: 0px !important;
 }
