@@ -35,8 +35,8 @@
             <% @courses.__send__ controller.action_name == 'search' ? :each_with_hit : :each do |course, hit| %>
               <tr>
                 <td><%= link_to hit.try(:highlight).try(:title)   ? hit.highlight.title.join.html_safe : course.title, course %></td>
-                <td><%= course.begins_at %></td>
-                <td><%= course.ends_at %></td>
+                <td><%= course.begins_at.strftime("%d-%B-%Y") %></td>
+                <td><%= course.ends_at.strftime("%d-%B-%Y") %></td>
               </tr>
             <% end %>
           </tbody>
@@ -49,7 +49,7 @@
       <%= paginate @courses %>
     </div>
     <br>
-    
+
     <%= link_to 'Novo Curso', new_course_path, class: 'btn btn-lg btn-sm-bnt-research' %>
     <%= link_to 'Todos os Cursos', courses_path, class: 'btn btn-lg btn-sm-bnt-research' %>
   </div>
