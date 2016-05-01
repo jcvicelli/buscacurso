@@ -1,74 +1,79 @@
-<p>
-  <h2>Empresa:  <%= @company.name %> </h2>
-</p>
-
-<p>
-  <strong>Cnpj:</strong>
-  <%= @company.cnpj %>
-</p>
-
-<p>
-  <strong>Fone:</strong>
-  <%= @company.phone %>
-</p>
-
-<p>
-  <strong>Contato:</strong>
-  <%= @company.contact %>
-</p>
-
-<p>
-  <h3>Endereços:</h3>
-</p>
-
-<% @company.enderecos.each do |endereco| %>
-  <hr>
-  <p>
-    <strong>Cep: </strong>
-    <%= endereco.cep %>
-  </p>
-  <p>
-    <strong>Cidade: </strong>
-    <%= endereco.cidade %>
-  </p>
-  <p>
-    <strong>Logradouro: </strong>
-    <%= endereco.logradouro %>
-  </p>
-
-<% end %>
-
-<% if @company.user_id == current_user.id || current_user.admin? %>
-  <br><br>
-  <p>
-    <hr>
-    <h3>Usuarios Autorizados:</h3>
-  </p>
-  <% if @company.employees %>
-    <% @company.employees.each do |employee| %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-3">
+      <p class="name-company">
+        <%= @company.name %>
       <p>
-        <%= employee.email %>
-        <%= link_to '', company_employee_path(@company, employee),
-                        class: 'glyphicon glyphicon-remove',
-                        method: :delete, data: { confirm: "Tem certeza?" } %>
-      </p>
-    <% end %>
-  <% end %>
-
-  <%= simple_form_for [@company, @company.employees.new] do |f| %>
-    <%= f.error_notification %>
-    
-    <div class="form-group form-employee">
-      <%= f.input :email, class: 'form-control'%>
+      <div class="divider-4px-yellow"></div>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Adicionar", class: 'btn btn-primary'  %>
-    </div>
-  <% end %>
+  </div>
 
-  <br><br>
-  <%= link_to 'Editar', edit_company_path(@company), class: 'btn btn-default btn-sm' %> |
-  <%= link_to 'Deletar', @company, class: 'btn btn-danger btn-sm',
-                      method: :delete, data: { confirm: 'Tem certeza?' } %> |
-<% end %>
-<%= link_to 'Voltar', companies_path, class: 'btn btn-default btn-sm' %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-3">
+      <p class="subtitle-company"> Dados Cadastrais<p>
+      <div class="divider-2px-blue"></div>
+      <p><strong>CNPJ:</strong> <%= @company.cnpj %> </p>
+      <p><strong>Fone:</strong> <%= @company.phone %> </p>
+      <p><strong>Site:</strong> <%= @company.site %> </p>
+      <p><strong>E-mail:</strong> <%= @company.email %> </p>
+      <p><strong>Contato:</strong> <%= @company.contact %> </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-3">
+      <p class="subtitle-company"> Endereços <p>
+      <div class="divider-2px-blue"></div>
+      <% @company.enderecos.each do |endereco| %>
+        <p><strong>Id:</strong> <%= endereco.nome %> </p>
+        <p><strong>Logradouro:</strong> <%= endereco.logradouro %> <%= endereco.numero %> </p>
+        <p><strong>Bairro:</strong> <%= endereco.bairro %> </p>
+        <p><strong>Cidade:</strong> <%= endereco.cidade %> <%= endereco.estado %> </p>
+        <p><strong>CEP:</strong> <%= endereco.cep %> </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-3">
+      <% if @company.user_id == current_user.id || current_user.admin? %>
+        <p class="subtitle-company"> Usuários Autorizados<p>
+        <div class="divider-2px-blue"></div>
+        <% if @company.employees %>
+          <% @company.employees.each do |employee| %>
+            <p>
+              <%= employee.email %>
+              <%= link_to '', company_employee_path(@company, employee),
+                              class: 'glyphicon glyphicon-remove',
+                              method: :delete, data: { confirm: "Tem certeza?" } %>
+            </p>
+          <% end %>
+        <% end %>
+
+        <div class="space40"></div>
+
+        <%= simple_form_for [@company, @company.employees.new] do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-group form-employee">
+            <%= f.input :email, class: 'form-control'%>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Adicionar", class: 'btn btn-primary btn-sm btn-add'  %>
+            <%= link_to 'Editar', edit_company_path(@company), class: 'btn btn-default btn-sm btn-edit' %> |
+            <%= link_to 'Deletar', @company, class: 'btn btn-danger btn-sm btn-delete',
+                                method: :delete, data: { confirm: 'Tem certeza?' } %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="space60"></div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-3">
+      <%= link_to 'Voltar', companies_path, class: 'btn btn-lg btn-company-back' %>
+    </div>
+  </div>
+  <div class="space120"></div>
+</div>

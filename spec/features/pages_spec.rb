@@ -12,7 +12,7 @@ feature "visiting static pages" do
   scenario "visiting about" do
     visit root_path
     click_link "Quem somos"
-    expect(page).to have_content( "Sobre" )
+    expect(page).to have_content( "Quem somos" )
   end
 
   scenario "visiting contact" do
