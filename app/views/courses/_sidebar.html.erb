@@ -36,42 +36,6 @@
     </div>
   </div>
 
-  <div class="list-group">
-    <div class="list-group-item barside-top">
-      <h4>Ministrante</h4>
-    </div>
-    <div class="body-side-bar">
-      <ul class="list-group">
-        <%- @courses.aggs['lecturer_name']['buckets'].each do |aggs| %>
-          <li class="list-group-item">
-            <%= link_to_lecturer(aggs) do %>
-              <%= aggs['key']  %>
-              <span class="badge"> <%= aggs['doc_count']  %> </span>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <div class="item-group">
-    <div class="list-group-item barside-top">
-      <h4>Parceiro</h4>
-    </div>
-    <div class="body-side-bar">
-      <ul class="list-group">
-        <%- @courses.aggs['company_name']['buckets'].each do |aggs| %>
-          <li class="list-group-item">
-            <%= link_to_company(aggs) do %>
-              <%= aggs['key']  %>
-              <span class="badge"> <%= aggs['doc_count']  %> </span>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
   <div class="item-group">
     <div class="list-group-item barside-top">
       <h4>Modo</h4>
@@ -99,6 +63,24 @@
         <%- @courses.aggs['certificate_name']['buckets'].each do |aggs| %>
           <li class="list-group-item">
             <%= link_to_certificate(aggs) do %>
+              <%= aggs['key']  %>
+              <span class="badge"> <%= aggs['doc_count']  %> </span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="item-group">
+    <div class="list-group-item barside-top">
+      <h4>Parceiro</h4>
+    </div>
+    <div class="body-side-bar">
+      <ul class="list-group">
+        <%- @courses.aggs['company_name']['buckets'].each do |aggs| %>
+          <li class="list-group-item">
+            <%= link_to_company(aggs) do %>
               <%= aggs['key']  %>
               <span class="badge"> <%= aggs['doc_count']  %> </span>
             <% end %>

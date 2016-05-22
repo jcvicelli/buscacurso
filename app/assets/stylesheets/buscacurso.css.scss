@@ -188,13 +188,23 @@ p.about{
   background: #fff401 !important;
 }
 
-div.pagination {
-  text-align: center;
-  display: block;
+.pagination a, .pagination span.current, .pagination span.gap{
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+  border-color: #E3C500 !important;
+  color: #3E3D3D !important;
 }
 
-div.pagination ul {
-  display: inline-block;
+.pagination {
+  border-left: 1px solid #ddd;
+  .active a{
+    color: #3E3D3D !important;
+    background-color: #E3C500 !important;
+  }
 }
 
 body {
@@ -618,12 +628,6 @@ p .invest {
 }
 
 /* Color page group-item-research */
-.pagination {
-  background-color:white;
-  border-color: #E3C500;
-  color: #3E3D3D;
-}
-
 .header-sidebar {
   background-color:#E3C500;
   border-color: #E3C500;
