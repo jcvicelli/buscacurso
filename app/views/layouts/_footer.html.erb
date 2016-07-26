@@ -42,34 +42,28 @@
           <p class="about">SOBRE</p>
           <ul class="list-unstyled">
             <li><%= link_to "Quem somos",  about_path %></li>
-            <li><%= link_to "Como funciona",  about_path %></li>
-            <li><%= link_to "Servicos oferecidos",  about_path %></li>
-            <li><%= link_to "Termos de uso",  about_path %></li>
-            <li><%= link_to "Política de privicidade",  about_path %></li>
+            <li><%= link_to "Termos de uso",  terms_path %></li>
+            <li><%= link_to "Política de privicidade",  policy_path %></li>
           </ul>
         </div>
         <div class="col-sm-2 col-sm-push-3">
           <p class="about">PARCEIROS</p>
           <ul class="list-unstyled">
-            <li><%= link_to "Empresas",  about_path %></li>
-            <li><%= link_to "Instituições de ensino",  about_path %></li>
-            <li><%= link_to "Palestrantes",  about_path %></li>
-            <li><%= link_to "Estudantes e profissionais",  about_path %></li>
+            <li><%= link_to "Seja uma parceiro",  be_company_path %></li>
           </ul>
         </div>
         <div class="col-sm-2 col-sm-push-3">
           <p class="about">CONTATO</p>
           <ul class="list-unstyled">
-            <li><%= link_to "Contato", contact_path %></li>
-            <li><%= link_to "Dúvidas frequentes", contact_path %></li>
-            <li><%= link_to "Suporte", contact_path %></li>
+            <li><%= link_to "Dúvidas frequentes", faq_path %></li>
+            <li><%= link_to "Suporte", support_path %></li>
           </ul>
         </div>
       </div>
       <div class="row footer-links">
         <div class="row">
           <div class="col-sm-12 copyright">
-            <p class="copyright"> Copyright © <%= Time.now.year %> SeekAT &nbsp;
+            <p class="copyright"> Copyright © <%= Time.now.year %> Seekat &nbsp;
               Desenvolvido por <a href="https://github.com/jcvicelli/" target="_blank">Jean Carlo Vicelli</a>
               Design por <a href="https://github.com/lcampagnin/" target="_blank">Luciane Campagnin</a>
             </p>

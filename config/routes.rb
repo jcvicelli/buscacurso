@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
   get 'about'   => 'pages#about'
-  get 'contact' => 'pages#contact'
+  get 'terms'   => 'pages#terms'
+  get 'policy'   => 'pages#policy'
   get 'be_company' => 'pages#be_company'
+  get 'faq'   => 'pages#faq'
+  get 'support'   => 'pages#support'
+  get 'steps'   => 'pages#steps'
 end

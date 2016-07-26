@@ -7,12 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to(image_tag("marca-seeakat.png", alt: "SeekAT", class: 'navbar-brand') , root_path) %>
+      <%= link_to(image_tag("marca-seeakat.png", alt: "Seekat", class: 'navbar-brand') , root_path) %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to raw('<span class="glyphicon glyphicon-home"></span> Home'),   root_path %></li>
-        <li><%= link_to "Seja um Parceiro", be_company_path %></li>
+        <li><%= link_to "Divulgue seu curso!", steps_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
